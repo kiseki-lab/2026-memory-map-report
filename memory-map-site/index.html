@@ -3,180 +3,296 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>春学期 思い出マップ自主企画ゼミ 活動報告</title>
+    <meta name="theme-color" content="#f7f3ea" />
+    <title>思い出マップ自主企画ゼミ｜2026年 活動報告</title>
     <meta
       name="description"
-      content="麗澤大学 春学期 思い出マップ自主企画ゼミの活動報告サイト。4月から7月までの活動と成果物をまとめています。"
+      content="麗澤大学「思い出マップ」自主企画ゼミの活動報告。企画、古地図制作、OCR、Unity展示、Webビューアまでの試行錯誤を記録しています。"
     />
+    <link rel="icon" href="./assets/omoide-team-favicon.png" type="image/png" />
     <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main">本文へ移動</a>
+
     <header class="site-header">
-      <a class="brand" href="#top">思い出マップ自主企画ゼミ</a>
+      <a class="brand" href="#top">2026 / 思い出マップ自主企画ゼミ</a>
       <nav aria-label="ページ内ナビゲーション">
-        <a href="#works">成果物</a>
-        <a href="#months">活動記録</a>
-        <a href="#learning">学び</a>
+        <a href="#overview">概要</a>
+        <a href="#timeline">活動記録</a>
       </nav>
     </header>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <img class="hero-gif" src="./IMG_8439.gif" alt="" />
-        <video class="hero-video" autoplay muted loop playsinline poster="./assets/poster.svg">
-          <source src="./IMG_8439.MOV" type="video/quicktime" />
-        </video>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="kicker">麗澤大学 / 春学期 活動報告</p>
-          <h1 id="hero-title">思い出を集め、地図にして、共有する。</h1>
-          <p class="hero-lead">
-            春学期の自主企画ゼミでは、Home Coming Dayに向けて、
-            麗澤大学の思い出を集めるアナログMAPと、3D・Web表現を組み合わせた成果物づくりに取り組みました。
-            このサイトでは、成果物と4月から7月までの歩みをまとめます。
-          </p>
-          <div class="hero-actions">
-            <a class="primary-link" href="https://2026-hcd-memory-map-web.vercel.app/" target="_blank" rel="noreferrer">
-              成果物を見る
-            </a>
-            <a class="secondary-link" href="#months">活動記録へ</a>
+    <main id="main">
+      <section id="top" class="hero" aria-labelledby="hero-title">
+        <img
+          class="hero-media"
+          src="./IMG_8439.gif"
+          alt="Home Coming Dayで思い出マップを投影している会場"
+        />
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="code-label light">HOME COMING DAY / 2026.06.20</p>
+          <h1 id="hero-title">
+            あなたの青春が<br />同じ地図上で出会う。<br />
+            <span>離れていても思い出はキャンパスに。</span>
+          </h1>
+          <div class="hero-foot">
+            <p>卒業生の思い出を集め、古地図とデジタル地図に表示する展示をつくった。</p>
+            <a class="hero-link" href="#timeline">活動を時系列で見る <span aria-hidden="true">↓</span></a>
           </div>
         </div>
       </section>
 
-      <section class="intro section">
-        <div class="section-title">
-          <p class="kicker">Purpose</p>
-          <h2>このゼミで目指したこと</h2>
-        </div>
-        <div class="intro-grid">
+      <section id="overview" class="overview" aria-labelledby="overview-title">
+        <div class="overview-heading">
+          <p class="code-label">00 / OVERVIEW</p>
+          <h2 id="overview-title">何をつくったゼミか</h2>
           <p>
-            私たちは、大学生活や卒業生の記憶を、場所と結びつけて残すことに注目しました。
-            思い出は個人のものですが、地図に重ねることで、誰かの青春や経験を他の人もたどれる形にできます。
-          </p>
-          <p>
-            春学期は、HCDに向けた企画、アナログ地図の準備、カテゴリ設計、Web・3D表現、
-            当日の運営と振り返りを進めました。完成した「麗澤思い出マップ」は、活動の成果であると同時に、
-            今後さらに思い出を集めていくための土台です。
+            2026年春、麗澤大学のHome Coming Dayに向けて、卒業生の思い出を集める展示を制作しました。
+            完成品だけでなく、途中で止まったこと、つなぎ直したこと、その後の展開までを報告します。
           </p>
         </div>
+        <dl class="overview-table">
+          <div><dt>活動期間</dt><dd>2026年4月—</dd></div>
+          <div><dt>最初の本番</dt><dd>Home Coming Day / 6月20日</dd></div>
+          <div><dt>制作物</dt><dd>古地図・投稿画面・Unity展示・Webビューア</dd></div>
+          <div><dt>投稿カテゴリ</dt><dd>恋愛・友情・勉強・部活・行事・その他</dd></div>
+        </dl>
       </section>
 
-      <section id="works" class="section works">
-        <div class="section-title">
-          <p class="kicker">Works</p>
-          <h2>今までの成果物</h2>
+      <section id="timeline" class="timeline-section" aria-labelledby="timeline-title">
+        <div class="section-heading">
+          <p class="code-label">01 / ACTIVITY TIMELINE</p>
+          <h2 id="timeline-title">4月から本番、その先まで</h2>
+          <p>日付を選ぶか、そのまま下へスクロールして活動を追えます。</p>
         </div>
-        <div class="work-card">
-          <div class="work-visual" aria-hidden="true">
-            <span class="map-line line-a"></span>
-            <span class="map-line line-b"></span>
-            <span class="map-pin pin-a"></span>
-            <span class="map-pin pin-b"></span>
-            <span class="map-pin pin-c"></span>
-            <span class="map-label label-a">友情</span>
-            <span class="map-label label-b">学業</span>
-            <span class="map-label label-c">行事</span>
+
+        <div class="date-rail" aria-label="活動日を選ぶ">
+          <span>APR—JUL</span>
+          <button type="button" data-target="entry-0415">04.15</button>
+          <button type="button" data-target="entry-0429">04.29</button>
+          <button type="button" data-target="entry-0527">05.27</button>
+          <button type="button" data-target="entry-0610">06.10</button>
+          <button type="button" data-target="entry-0617">06.17</button>
+          <button type="button" data-target="entry-0620">06.20</button>
+          <button type="button" data-target="entry-0705">07.05</button>
+          <button type="button" data-target="entry-0723">07.23</button>
+        </div>
+
+        <div class="timeline-layout">
+          <aside class="calendar-panel" aria-label="2026年4月から7月の活動カレンダー">
+            <div class="calendar-head">
+              <span>2026</span>
+            </div>
+            <div class="calendar-weekdays" aria-hidden="true"><span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span></div>
+            <div class="calendar-months">
+              <section class="mini-month" data-month="4" aria-label="2026年4月">
+                <h3><span>4</span>月</h3>
+                <div class="days">
+                  <i></i><i></i><i></i><span>1</span><span>2</span><span>3</span><span>4</span>
+                  <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+                  <span>12</span><span>13</span><span>14</span><button data-target="entry-0415">15</button><span>16</span><span>17</span><span>18</span>
+                  <span>19</span><span>20</span><span>21</span><button data-target="entry-0422">22</button><span>23</span><span>24</span><span>25</span>
+                  <span>26</span><span>27</span><span>28</span><button data-target="entry-0429">29</button><span>30</span>
+                </div>
+              </section>
+
+              <section class="mini-month" data-month="5" aria-label="2026年5月">
+                <h3><span>5</span>月</h3>
+                <div class="days">
+                  <i></i><i></i><i></i><i></i><i></i><span>1</span><button data-target="entry-0502">2</button>
+                  <span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                  <span>10</span><span>11</span><span>12</span><button data-target="entry-0513">13</button><span>14</span><span>15</span><span>16</span>
+                  <span>17</span><span>18</span><span>19</span><button data-target="entry-0520">20</button><span>21</span><span>22</span><span>23</span>
+                  <span>24</span><span>25</span><span>26</span><button data-target="entry-0527">27</button><span>28</span><span>29</span><span>30</span>
+                  <span>31</span>
+                </div>
+              </section>
+
+              <section class="mini-month" data-month="6" aria-label="2026年6月">
+                <h3><span>6</span>月</h3>
+                <div class="days">
+                  <i></i><span>1</span><button data-target="entry-0602">2</button><span>3</span><button data-target="entry-0604">4</button><span>5</span><span>6</span>
+                  <span>7</span><span>8</span><span>9</span><button data-target="entry-0610">10</button><span>11</span><span>12</span><button data-target="entry-0613">13</button>
+                  <span>14</span><button data-target="entry-0615">15</button><span>16</span><button data-target="entry-0617">17</button><span>18</span><span>19</span><button class="event-day" data-target="entry-0620">20</button>
+                  <span>21</span><span>22</span><span>23</span><button data-target="entry-0624">24</button><span>25</span><span>26</span><span>27</span>
+                  <span>28</span><span>29</span><span>30</span>
+                </div>
+              </section>
+
+              <section class="mini-month" data-month="7" aria-label="2026年7月">
+                <h3><span>7</span>月</h3>
+                <div class="days">
+                  <i></i><i></i><i></i><button data-target="entry-0701">1</button><span>2</span><span>3</span><span>4</span>
+                  <button data-target="entry-0705">5</button><span>6</span><span>7</span><button data-target="entry-0708">8</button><span>9</span><span>10</span><span>11</span>
+                  <span>12</span><span>13</span><span>14</span><button data-target="entry-0715">15</button><span>16</span><span>17</span><span>18</span>
+                  <span>19</span><span>20</span><span>21</span><span>22</span><button data-target="entry-0723">23</button><span>24</span><span>25</span>
+                  <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+                </div>
+              </section>
+            </div>
+          </aside>
+
+          <svg class="timeline-connector" aria-hidden="true">
+            <path></path>
+          </svg>
+
+          <div class="timeline-list">
+            <article id="entry-0326" class="timeline-entry compact" data-date="03.26">
+              <p class="entry-meta"><time datetime="2026-03-26">03.26</time> / 準備</p>
+              <h3>自主企画ゼミの準備を始める</h3>
+              <p>日程を調整し、Home Coming Dayに向けた活動の準備を始めた。</p>
+            </article>
+
+            <article id="entry-0415" class="timeline-entry" data-date="04.15">
+              <p class="entry-meta"><time datetime="2026-04-15">04.15</time> / 活動</p>
+              <h3>ゼミが始動</h3>
+              <p>情報共有の場所を整え、卒業生の思い出を集める企画を検討し始めた。</p>
+            </article>
+
+            <article id="entry-0422" class="timeline-entry compact" data-date="04.22">
+              <p class="entry-meta"><time datetime="2026-04-22">04.22</time> / 活動</p>
+              <h3>地図上で思い出を扱う方法を探す</h3>
+              <p>地図データ、投影、画面、アバター表現の参考例を集めた。</p>
+            </article>
+
+            <article id="entry-0429" class="timeline-entry decision" data-date="04.29">
+              <p class="entry-meta"><time datetime="2026-04-29">04.29</time> / 決定</p>
+              <h3>アナログ班と技術班に分かれる</h3>
+              <p>古地図の展示と、現在の地図へ思い出を表示する仕組みを並行して作ることにした。</p>
+            </article>
+
+            <article id="entry-0502" class="timeline-entry achievement compact" data-date="05.02">
+              <p class="entry-meta"><time datetime="2026-05-02">05.02</time> / 達成 / 技術</p>
+              <h3>Unityで地図を表示する最初の試作</h3>
+              <p>早い段階で、3D空間に地図を出せることを確認した。</p>
+            </article>
+
+            <article id="entry-0513" class="timeline-entry compact" data-date="05.13">
+              <p class="entry-meta"><time datetime="2026-05-13">05.13</time> / 活動</p>
+              <h3>展示配置と人の流れを考える</h3>
+              <p>システムだけでなく、来場者が参加する会場全体を設計した。</p>
+            </article>
+
+            <article id="entry-0520" class="timeline-entry decision compact" data-date="05.20">
+              <p class="entry-meta"><time datetime="2026-05-20">05.20</time> / 決定</p>
+              <h3>展示で伝える言葉が決まる</h3>
+              <blockquote>あなたの青春が同じ地図上で出会う。離れていても思い出はキャンパスに。</blockquote>
+            </article>
+
+            <article id="entry-0527" class="timeline-entry struggle" data-date="05.27">
+              <p class="entry-meta"><time datetime="2026-05-27">05.27—28</time> / 苦労 → 決定</p>
+              <h3>作業が止まり、進め方を変える</h3>
+              <div class="entry-columns">
+                <div><strong>起きたこと</strong><p>必要な素材や前提が揃わず、予定した制作を進められない時間があった。</p></div>
+                <div><strong>変えたこと</strong><p>誰が何をいつまでに行うか、タスクリストで見えるようにした。</p></div>
+              </div>
+            </article>
+
+            <article id="entry-0602" class="timeline-entry struggle compact" data-date="06.02">
+              <p class="entry-meta"><time datetime="2026-06-02">06.02</time> / 苦労</p>
+              <h3>天候に合わせて制作順を組み直す</h3>
+              <p>リハーサルが難しくなり、古地図の印刷など先に進められる作業へ切り替えた。</p>
+            </article>
+
+            <article id="entry-0604" class="timeline-entry achievement" data-date="06.04">
+              <p class="entry-meta"><time datetime="2026-06-04">06.04</time> / 達成 / アナログ</p>
+              <h3>5つの年代の古地図が形になる</h3>
+              <p>1960・1970・1980・2005・2025年の地図を切り出し、ラミネートした。</p>
+            </article>
+
+            <article id="entry-0610" class="timeline-entry" data-date="06.10">
+              <p class="entry-meta"><time datetime="2026-06-10">06.10—12</time> / 活動 + 苦労 / 技術</p>
+              <h3>付箋を撮影し、公開前に確認する流れを試す</h3>
+              <p>撮影、OCR、確認、保存、Unity表示のどこで人が確かめるかを決めた。</p>
+              <div class="entry-media pair">
+                <figure><img src="./assets/capture-form.png" alt="スマートフォン用の付箋撮影画面" loading="lazy" /><figcaption>撮影画面</figcaption></figure>
+                <figure><img src="./assets/admin-review.png" alt="OCR結果を確認する管理画面" loading="lazy" /><figcaption>確認画面</figcaption></figure>
+              </div>
+            </article>
+
+            <article id="entry-0613" class="timeline-entry struggle" data-date="06.13">
+              <p class="entry-meta"><time datetime="2026-06-13">06.13</time> / 苦労 / 技術</p>
+              <h3>古地図と緯度経度のずれに向き合う</h3>
+              <p>年代ごとに範囲が違う地図画像を同じ座標系へ合わせるため、画像の端に対応する緯度経度を調べた。</p>
+            </article>
+
+            <article id="entry-0615" class="timeline-entry decision compact" data-date="06.15">
+              <p class="entry-meta"><time datetime="2026-06-15">06.15</time> / 決定 / 技術</p>
+              <h3>まずWebからUnityまで一本つなぐ</h3>
+              <p>個別の見た目より先に、投稿から表示までの経路を成立させることを優先した。</p>
+            </article>
+
+            <article id="entry-0617" class="timeline-entry achievement featured" data-date="06.17">
+              <p class="entry-meta"><time datetime="2026-06-17">06.17</time> / 苦労 + 達成 / 技術</p>
+              <h3>投稿がUnityへリアルタイムに届く</h3>
+              <img class="featured-media" src="./IMG_8439.gif" alt="会場でUnityの投影を確認している様子" loading="lazy" />
+              <div class="entry-columns three">
+                <div><strong>困ったこと</strong><p>投稿地点とUnity上の表示位置が合わない。</p></div>
+                <div><strong>原因</strong><p>1メートルあたりのUnity単位の設定。</p></div>
+                <div><strong>できたこと</strong><p>座標を直し、Supabaseの投稿をリアルタイム表示。</p></div>
+              </div>
+            </article>
+
+            <article id="entry-0620" class="timeline-entry event featured" data-date="06.20">
+              <p class="entry-meta"><time datetime="2026-06-20">06.20</time> / 本番</p>
+              <h3>Home Coming Dayで展示</h3>
+              <p>卒業生に思い出を書いてもらい、古地図とデジタル地図を使った展示を実施した。</p>
+              <p>役割を分担し、投稿から画面表示までのシステムを本番で動かした。</p>
+            </article>
+
+            <article id="entry-0624" class="timeline-entry decision" data-date="06.24">
+              <p class="entry-meta"><time datetime="2026-06-24">06.24</time> / 振り返り + 決定</p>
+              <h3>次は現役学生へ</h3>
+              <p>分担とシステム稼働はうまくいった。一方、参加方法、進捗共有、古地図の説明を改善点として挙げた。</p>
+            </article>
+
+            <article id="entry-0701" class="timeline-entry achievement compact" data-date="07.01">
+              <p class="entry-meta"><time datetime="2026-07-01">07.01—02</time> / 達成</p>
+              <h3>OCRシステムを公開リポジトリへ整理</h3>
+              <p>HCDで使ったコードと画面を、再利用できる形へまとめた。</p>
+            </article>
+
+            <article id="entry-0705" class="timeline-entry achievement featured" data-date="07.05">
+              <p class="entry-meta"><time datetime="2026-07-05">07.05—06</time> / 苦労 + 達成 / 技術</p>
+              <h3>Web地図ビューアを集中的に試作</h3>
+              <img class="featured-media" src="./assets/viewer-hero.jpg" alt="Three.jsで制作した思い出マップのWebビューア" loading="lazy" />
+              <div class="entry-columns">
+                <div><strong>試したこと</strong><p>Three.jsでキャンパス、周辺地図、思い出のピンを表示。</p></div>
+                <div><strong>やり直したこと</strong><p>浮いて見える地面や外周の処理を戻し、実寸に基づく位置へ補正。</p></div>
+              </div>
+            </article>
+
+            <article id="entry-0708" class="timeline-entry compact" data-date="07.08">
+              <p class="entry-meta"><time datetime="2026-07-08">07.08</time> / 活動</p>
+              <h3>活動報告サイトの制作環境を整える</h3>
+            </article>
+
+            <article id="entry-0715" class="timeline-entry decision compact" data-date="07.15">
+              <p class="entry-meta"><time datetime="2026-07-15">07.15</time> / 決定</p>
+              <h3>オープンキャンパスの導線を設計</h3>
+              <p>HCDの振り返りを踏まえ、会場配置と参加者の動きを考え直した。</p>
+            </article>
+
+            <article id="entry-0723" class="timeline-entry" data-date="07.23">
+              <p class="entry-meta"><time datetime="2026-07-23">07.22—23</time> / 現在地</p>
+              <h3>報告をまとめ、次の試作を相談する</h3>
+              <p>活動記録を整理しながら、オープンキャンパスと秋以降の展開を話し合っている。</p>
+            </article>
           </div>
-          <div class="work-copy">
-            <p class="kicker">Reitaku Memory Map</p>
-            <h3>麗澤思い出マップ 2026</h3>
-            <p>
-              キャンパス上の場所に、思い出のカテゴリや年代を重ねて見られるWeb成果物です。
-              HCDで扱ったアナログMAPの考え方を引き継ぎ、デジタルでも思い出をたどれる形にしています。
-            </p>
-            <a class="primary-link compact" href="https://2026-hcd-memory-map-web.vercel.app/" target="_blank" rel="noreferrer">
-              成果物サイトを開く
-            </a>
-          </div>
         </div>
       </section>
 
-      <section id="months" class="section months">
-        <div class="section-title">
-          <p class="kicker">April - July</p>
-          <h2>春学期の活動記録</h2>
-        </div>
-        <div class="timeline">
-          <article class="month-card">
-            <span class="month">4月</span>
-            <h3>企画の再確認と役割決め</h3>
-            <p>
-              Memory Mapの目的を再確認し、Home Coming Dayに向けて何を準備するかを整理しました。
-              地図印刷、大学の線引き、ジャンル説明、ラミネート、買い出し、Web作成など、必要な役割を洗い出しました。
-            </p>
-            <ul>
-              <li>Memory Mapの目的と今後の計画を共有</li>
-              <li>HCDに向けた展示内容と役割を整理</li>
-              <li>Next.js、Supabase、Three.jsなどデジタル表現の方向性を検討</li>
-            </ul>
-          </article>
-
-          <article class="month-card">
-            <span class="month">5月</span>
-            <h3>展示イメージと準備内容の具体化</h3>
-            <p>
-              HCD当日の見せ方を固め、アナログ班とデジタル班で作業内容を具体化しました。
-              キャッチコピーや作業日程、印刷・ラミネート、会場レイアウトなど、当日に向けた準備を進めました。
-            </p>
-            <ul>
-              <li>「あなたの青春が同じ地図上で出会う。離れていても思い出はキャンパスに。」を決定</li>
-              <li>1974・1979・1984・2005・2025の年代地図を準備</li>
-              <li>A3印刷、丸机、導線、準備日程を調整</li>
-            </ul>
-          </article>
-
-          <article class="month-card">
-            <span class="month">6月</span>
-            <h3>HCD実施と振り返り</h3>
-            <p>
-              HCDに向けて当日イメージ、メンバー、ルールを確認しました。
-              思い出のジャンルは、恋愛、友情、学業、部活、行事、その他に整理し、色分けして貼れる仕組みにしました。
-              実施後は良かった点と改善点を振り返りました。
-            </p>
-            <ul>
-              <li>ジャンルと貼り方のルールを決定</li>
-              <li>入口展示や当日の仕事分担が好評</li>
-              <li>導線説明、報連相、過去の麗澤理解を改善点として整理</li>
-            </ul>
-          </article>
-
-          <article class="month-card">
-            <span class="month">7月</span>
-            <h3>次のイベントとWeb報告へ</h3>
-            <p>
-              HCDで得た成果と反省をもとに、現麗澤大学生向けのイベント開催とWeb作成を決定しました。
-              春学期の活動を振り返り、成果物だけでなく、そこに至るまでのプロセスを報告できる形にまとめています。
-            </p>
-            <ul>
-              <li>現麗澤大学生向けイベント開催を決定</li>
-              <li>「思い出記入」以外のアクションも検討</li>
-              <li>活動報告サイトとして春学期の流れを整理</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section id="learning" class="section learning">
-        <div class="section-title">
-          <p class="kicker">Learning</p>
-          <h2>活動を通して得たこと</h2>
-        </div>
-        <div class="learning-grid">
-          <article>
-            <h3>記憶を共有できる形にする</h3>
-            <p>個人の思い出を場所と結びつけることで、他の人も理解しやすい情報に変換できました。</p>
-          </article>
-          <article>
-            <h3>地図をコミュニケーションの場にする</h3>
-            <p>地図は位置を示すだけでなく、会話や発見を生むためのインターフェースになると分かりました。</p>
-          </article>
-          <article>
-            <h3>成果物を更新できる土台にする</h3>
-            <p>今後も思い出を追加していくことで、より多くの人が関われるアーカイブへ発展できます。</p>
-          </article>
-        </div>
-      </section>
     </main>
+
+    <footer class="site-footer">
+      <p>麗澤大学「思い出マップ」自主企画ゼミ / 2026</p>
+      <div>
+        <a href="https://github.com/kiseki-lab" target="_blank" rel="noreferrer">kiseki-lab / GitHub ↗</a>
+        <a href="#top">ページ上部へ ↑</a>
+      </div>
+    </footer>
   </body>
 </html>

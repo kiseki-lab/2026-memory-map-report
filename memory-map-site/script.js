@@ -83,11 +83,37 @@ function updateConnector() {
   );
 }
 
-function requestConnectorUpdate() {
+function updateActiveEntryFromViewport() {
+  if (Date.now() < selectionLockUntil || !timelineLayout || !entries.length) return;
+
+  const layoutRect = timelineLayout.getBoundingClientRect();
+  if (layoutRect.bottom <= 0 || layoutRect.top >= window.innerHeight) return;
+
+  const viewportCenter = window.innerHeight / 2;
+  const entryAtCenter = entries.find((entry) => {
+    const rect = entry.getBoundingClientRect();
+    return rect.top <= viewportCenter && rect.bottom >= viewportCenter;
+  });
+
+  const nearestEntry = entryAtCenter ?? entries.reduce((nearest, entry) => {
+    const rect = entry.getBoundingClientRect();
+    const entryCenter = rect.top + rect.height / 2;
+    const nearestRect = nearest.getBoundingClientRect();
+    const nearestCenter = nearestRect.top + nearestRect.height / 2;
+    return Math.abs(entryCenter - viewportCenter) < Math.abs(nearestCenter - viewportCenter)
+      ? entry
+      : nearest;
+  });
+
+  setActiveEntry(nearestEntry);
+}
+
+function requestTimelineUpdate() {
   if (frameRequested) return;
   frameRequested = true;
   requestAnimationFrame(() => {
     frameRequested = false;
+    updateActiveEntryFromViewport();
     updateConnector();
   });
 }
@@ -105,20 +131,6 @@ dateButtons.forEach((button) => {
   });
 });
 
-const observer = new IntersectionObserver(
-  (observedEntries) => {
-    if (Date.now() < selectionLockUntil) return;
-
-    const visible = observedEntries
-      .filter((item) => item.isIntersecting)
-      .sort((a, b) => Math.abs(a.boundingClientRect.top - window.innerHeight * 0.55) - Math.abs(b.boundingClientRect.top - window.innerHeight * 0.55));
-
-    if (visible[0]) setActiveEntry(visible[0].target);
-  },
-  { rootMargin: "-10% 0px -30% 0px", threshold: 0 },
-);
-
-entries.forEach((entry) => observer.observe(entry));
 activeEntry?.classList.add("active");
 setActiveMonth(activeEntry);
 buttonsFor(activeEntry).forEach((button) => {
@@ -126,7 +138,7 @@ buttonsFor(activeEntry).forEach((button) => {
   button.setAttribute("aria-current", "date");
 });
 
-window.addEventListener("scroll", requestConnectorUpdate, { passive: true });
-window.addEventListener("resize", requestConnectorUpdate);
-new ResizeObserver(requestConnectorUpdate).observe(timelineLayout);
-requestConnectorUpdate();
+window.addEventListener("scroll", requestTimelineUpdate, { passive: true });
+window.addEventListener("resize", requestTimelineUpdate);
+new ResizeObserver(requestTimelineUpdate).observe(timelineLayout);
+requestTimelineUpdate();

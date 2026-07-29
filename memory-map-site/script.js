@@ -65,17 +65,18 @@ function updateConnector() {
   const buttonRect = calendarButton.getBoundingClientRect();
   const entryRect = activeEntry.getBoundingClientRect();
   const listRect = timelineList.getBoundingClientRect();
-  const width = window.innerWidth;
-  const height = window.innerHeight;
+  const layoutRect = timelineLayout.getBoundingClientRect();
+  const width = timelineLayout.clientWidth;
+  const height = timelineLayout.clientHeight;
 
   connector.setAttribute("width", String(width));
   connector.setAttribute("height", String(height));
   connector.setAttribute("viewBox", `0 0 ${width} ${height}`);
 
-  const startX = buttonRect.left + buttonRect.width / 2;
-  const startY = buttonRect.top + buttonRect.height / 2;
-  const endX = listRect.left;
-  const endY = entryRect.top + 20;
+  const startX = buttonRect.left - layoutRect.left + buttonRect.width / 2;
+  const startY = buttonRect.top - layoutRect.top + buttonRect.height / 2;
+  const endX = listRect.left - layoutRect.left;
+  const endY = entryRect.top - layoutRect.top + 20;
 
   connectorPath.setAttribute(
     "d",

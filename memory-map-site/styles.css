@@ -302,9 +302,7 @@ h1 span {
 }
 
 .calendar-panel {
-  position: sticky;
-  top: 24px;
-  z-index: 4;
+  position: relative;
   padding: 4px 0;
 }
 
@@ -389,13 +387,7 @@ h1 span {
 }
 
 .timeline-connector {
-  position: fixed;
-  inset: 0;
-  z-index: 3;
-  width: 100vw;
-  height: 100vh;
-  overflow: visible;
-  pointer-events: none;
+  display: none;
 }
 
 .timeline-connector path {
@@ -672,9 +664,6 @@ h1 span {
   }
 
   .date-rail {
-    position: sticky;
-    top: 0;
-    z-index: 10;
     display: flex;
     gap: 7px;
     overflow-x: auto;

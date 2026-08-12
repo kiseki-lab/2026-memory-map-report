@@ -5,10 +5,18 @@ const entries = [...document.querySelectorAll(".timeline-entry")];
 const dateButtons = [...document.querySelectorAll(".date-rail [data-target], .calendar-panel [data-target]")];
 const monthSections = [...document.querySelectorAll(".mini-month[data-month]")];
 const timelineList = document.querySelector(".timeline-list");
+const calendarMonths = document.querySelector(".calendar-months");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+const ENTRY_MARKER_OFFSET = 34;
+const ENTRY_MARKER_SIZE = 10;
 
 let activeEntry = entries[0] ?? null;
 let frameRequested = false;
 let selectionLockUntil = 0;
+let calendarScrollTarget = null;
+let timelineLoopRunning = false;
+const CALENDAR_SCROLL_EASE = 0.14;
 
 function buttonsFor(entry) {
   return dateButtons.filter((button) => button.dataset.target === entry?.id);
@@ -23,40 +31,115 @@ function setActiveMonth(entry) {
   });
 }
 
-function setActiveEntry(entry) {
-  if (!entry || entry === activeEntry) {
+function entryMarkerCenter(entry) {
+  const entryRect = entry.getBoundingClientRect();
+  const listRect = timelineList.getBoundingClientRect();
+  return {
+    x: listRect.left,
+    y: entryRect.top + ENTRY_MARKER_OFFSET + ENTRY_MARKER_SIZE / 2,
+  };
+}
+
+function calendarScrollTargetFor(entry) {
+  if (!calendarMonths) return null;
+
+  const calendarButton = document.querySelector(`.calendar-panel [data-target="${entry.id}"]`);
+  if (!calendarButton) return null;
+
+  const monthsRect = calendarMonths.getBoundingClientRect();
+  const buttonRect = calendarButton.getBoundingClientRect();
+  const buttonCenter = buttonRect.top - monthsRect.top + calendarMonths.scrollTop + buttonRect.height / 2;
+  const maxScrollTop = calendarMonths.scrollHeight - calendarMonths.clientHeight;
+  return Math.max(0, Math.min(buttonCenter - calendarMonths.clientHeight / 2, maxScrollTop));
+}
+
+function setCalendarTargetForEntry(entry, { immediate = false } = {}) {
+  if (window.innerWidth <= 760) return;
+
+  const target = calendarScrollTargetFor(entry);
+  if (target === null) return;
+
+  calendarScrollTarget = target;
+  if (immediate && calendarMonths) {
+    calendarMonths.scrollTop = target;
+  }
+  startTimelineLoop();
+}
+
+function startTimelineLoop() {
+  if (timelineLoopRunning) return;
+  timelineLoopRunning = true;
+  requestAnimationFrame(timelineLoopTick);
+}
+
+function timelineLoopTick() {
+  const layoutRect = timelineLayout?.getBoundingClientRect();
+  const inView = layoutRect && layoutRect.bottom > 0 && layoutRect.top < window.innerHeight;
+  const desktop = window.innerWidth > 760;
+
+  if (desktop && inView) {
+    if (calendarMonths && calendarScrollTarget !== null) {
+      const diff = calendarScrollTarget - calendarMonths.scrollTop;
+      if (Math.abs(diff) < 0.5) {
+        calendarMonths.scrollTop = calendarScrollTarget;
+      } else if (reducedMotion.matches) {
+        calendarMonths.scrollTop = calendarScrollTarget;
+      } else {
+        calendarMonths.scrollTop += diff * CALENDAR_SCROLL_EASE;
+      }
+    }
+
     updateConnector();
+    requestAnimationFrame(timelineLoopTick);
     return;
   }
 
-  activeEntry?.classList.remove("active");
-  buttonsFor(activeEntry).forEach((button) => {
-    button.classList.remove("active");
-    button.removeAttribute("aria-current");
-  });
+  timelineLoopRunning = false;
+  connectorPath?.setAttribute("d", "");
+}
 
-  activeEntry = entry;
-  activeEntry.classList.add("active");
-  setActiveMonth(activeEntry);
+function setActiveEntry(entry) {
+  if (!entry) return;
 
-  buttonsFor(activeEntry).forEach((button) => {
-    button.classList.add("active");
-    button.setAttribute("aria-current", "date");
-  });
+  const entryChanged = entry !== activeEntry;
+
+  if (entryChanged) {
+    activeEntry?.classList.remove("active");
+    buttonsFor(activeEntry).forEach((button) => {
+      button.classList.remove("active");
+      button.removeAttribute("aria-current");
+    });
+
+    activeEntry = entry;
+    activeEntry.classList.add("active");
+    setActiveMonth(activeEntry);
+
+    buttonsFor(activeEntry).forEach((button) => {
+      button.classList.add("active");
+      button.setAttribute("aria-current", "date");
+    });
+  }
 
   if (window.innerWidth <= 760) {
     const railButton = document.querySelector(`.date-rail [data-target="${activeEntry.id}"]`);
     railButton?.scrollIntoView({
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      behavior: reducedMotion.matches ? "auto" : "smooth",
       block: "nearest",
       inline: "center",
     });
+  } else if (entryChanged) {
+    setCalendarTargetForEntry(activeEntry);
   }
-  updateConnector();
 }
 
 function updateConnector() {
   if (!timelineLayout || !connector || !connectorPath || !timelineList || !activeEntry || window.innerWidth <= 760) {
+    return;
+  }
+
+  const layoutRect = timelineLayout.getBoundingClientRect();
+  if (layoutRect.bottom <= 0 || layoutRect.top >= window.innerHeight) {
+    connectorPath.setAttribute("d", "");
     return;
   }
 
@@ -67,20 +150,18 @@ function updateConnector() {
   }
 
   const buttonRect = calendarButton.getBoundingClientRect();
-  const entryRect = activeEntry.getBoundingClientRect();
-  const listRect = timelineList.getBoundingClientRect();
-  const layoutRect = timelineLayout.getBoundingClientRect();
-  const width = timelineLayout.clientWidth;
-  const height = timelineLayout.clientHeight;
+  const marker = entryMarkerCenter(activeEntry);
+  const width = window.innerWidth;
+  const height = window.innerHeight;
 
   connector.setAttribute("width", String(width));
   connector.setAttribute("height", String(height));
   connector.setAttribute("viewBox", `0 0 ${width} ${height}`);
 
-  const startX = buttonRect.left - layoutRect.left + buttonRect.width / 2;
-  const startY = buttonRect.top - layoutRect.top + buttonRect.height / 2;
-  const endX = listRect.left - layoutRect.left;
-  const endY = entryRect.top - layoutRect.top + 20;
+  const startX = buttonRect.left + buttonRect.width / 2;
+  const startY = buttonRect.top + buttonRect.height / 2;
+  const endX = marker.x;
+  const endY = marker.y;
 
   connectorPath.setAttribute(
     "d",
@@ -119,7 +200,7 @@ function requestTimelineUpdate() {
   requestAnimationFrame(() => {
     frameRequested = false;
     updateActiveEntryFromViewport();
-    updateConnector();
+    startTimelineLoop();
   });
 }
 
@@ -129,6 +210,7 @@ dateButtons.forEach((button) => {
     if (!entry) return;
     selectionLockUntil = Date.now() + 900;
     setActiveEntry(entry);
+    setCalendarTargetForEntry(entry);
     entry.scrollIntoView({
       behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
       block: "start",
@@ -136,12 +218,10 @@ dateButtons.forEach((button) => {
   });
 });
 
-activeEntry?.classList.add("active");
-setActiveMonth(activeEntry);
-buttonsFor(activeEntry).forEach((button) => {
-  button.classList.add("active");
-  button.setAttribute("aria-current", "date");
-});
+if (activeEntry) {
+  setActiveEntry(activeEntry);
+  setCalendarTargetForEntry(activeEntry, { immediate: true });
+}
 
 window.addEventListener("scroll", requestTimelineUpdate, { passive: true });
 window.addEventListener("resize", requestTimelineUpdate);
@@ -149,6 +229,7 @@ if (timelineLayout) {
   new ResizeObserver(requestTimelineUpdate).observe(timelineLayout);
 }
 requestTimelineUpdate();
+startTimelineLoop();
 
 document.querySelectorAll(".mini-month[data-month]").forEach((month) => {
   const monthNumber = Number(month.dataset.month);
@@ -159,32 +240,42 @@ document.querySelectorAll(".mini-month[data-month]").forEach((month) => {
 });
 
 const carouselRows = [...document.querySelectorAll("[data-carousel]")];
-const carouselButtons = [...document.querySelectorAll("[data-carousel-direction]")];
 
-function moveCarousels(direction) {
-  const multiplier = direction === "previous" ? -1 : 1;
-  carouselRows.forEach((row, index) => {
-    const distance = Math.max(280, row.clientWidth * 0.72) * multiplier;
-    row.scrollBy({
-      left: index % 2 === 0 ? distance : distance * 0.85,
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-    });
+carouselRows.forEach((row, index) => {
+  const originals = [...row.children];
+  originals.forEach((item) => {
+    const copy = item.cloneNode(true);
+    copy.setAttribute("aria-hidden", "true");
+    copy.querySelectorAll("img").forEach((image) => image.setAttribute("alt", ""));
+    row.append(copy);
   });
-}
 
-carouselButtons.forEach((button) => {
-  button.addEventListener("click", () => moveCarousels(button.dataset.carouselDirection));
-});
+  let animationFrame;
+  let lastTimestamp;
+  let scrollPosition = 0;
+  // Row 1 (development) scrolls right; row 2 (event) scrolls left — opposite directions.
+  const direction = index === 0 ? -1 : 1;
+  const speed = index === 0 ? 42 : 34;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-carouselRows.forEach((row) => {
-  row.tabIndex = 0;
-  row.setAttribute("aria-label", "写真を横方向に閲覧");
-  row.addEventListener("keydown", (event) => {
-    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
-    event.preventDefault();
-    row.scrollBy({
-      left: (event.key === "ArrowLeft" ? -1 : 1) * Math.max(240, row.clientWidth * 0.7),
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-    });
+  function animate(timestamp) {
+    if (!reducedMotion.matches && !document.hidden) {
+      const elapsed = lastTimestamp ? timestamp - lastTimestamp : 0;
+      const halfWidth = row.scrollWidth / 2;
+      if (halfWidth > 0) {
+        scrollPosition += direction * (speed * elapsed) / 1000;
+        if (scrollPosition >= halfWidth) scrollPosition -= halfWidth;
+        if (scrollPosition < 0) scrollPosition += halfWidth;
+        row.scrollLeft = scrollPosition;
+      }
+    }
+    lastTimestamp = timestamp;
+    animationFrame = requestAnimationFrame(animate);
+  }
+
+  reducedMotion.addEventListener("change", () => {
+    scrollPosition = 0;
+    row.scrollLeft = 0;
   });
+  animationFrame = requestAnimationFrame(animate);
 });

@@ -2,7 +2,7 @@ const timelineLayout = document.querySelector(".timeline-layout");
 const connector = document.querySelector(".timeline-connector");
 const connectorPath = connector?.querySelector("path");
 const entries = [...document.querySelectorAll(".timeline-entry")];
-const dateButtons = [...document.querySelectorAll("[data-target]")];
+const dateButtons = [...document.querySelectorAll(".date-rail [data-target], .calendar-panel [data-target]")];
 const monthSections = [...document.querySelectorAll(".mini-month[data-month]")];
 const timelineList = document.querySelector(".timeline-list");
 
@@ -16,7 +16,7 @@ function buttonsFor(entry) {
 
 function setActiveMonth(entry) {
   const month = Number(entry?.dataset.date?.split(".")[0]);
-  const visibleMonth = Math.max(4, Math.min(7, month || 4));
+  const visibleMonth = Math.max(4, Math.min(8, month || 4));
 
   monthSections.forEach((section) => {
     section.classList.toggle("active", Number(section.dataset.month) === visibleMonth);
@@ -46,7 +46,11 @@ function setActiveEntry(entry) {
 
   if (window.innerWidth <= 760) {
     const railButton = document.querySelector(`.date-rail [data-target="${activeEntry.id}"]`);
-    railButton?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    railButton?.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      block: "nearest",
+      inline: "center",
+    });
   }
   updateConnector();
 }
@@ -141,5 +145,46 @@ buttonsFor(activeEntry).forEach((button) => {
 
 window.addEventListener("scroll", requestTimelineUpdate, { passive: true });
 window.addEventListener("resize", requestTimelineUpdate);
-new ResizeObserver(requestTimelineUpdate).observe(timelineLayout);
+if (timelineLayout) {
+  new ResizeObserver(requestTimelineUpdate).observe(timelineLayout);
+}
 requestTimelineUpdate();
+
+document.querySelectorAll(".mini-month[data-month]").forEach((month) => {
+  const monthNumber = Number(month.dataset.month);
+  month.querySelectorAll("button[data-target]").forEach((button) => {
+    button.type = "button";
+    button.setAttribute("aria-label", `2026年${monthNumber}月${button.textContent.trim()}日の活動を見る`);
+  });
+});
+
+const carouselRows = [...document.querySelectorAll("[data-carousel]")];
+const carouselButtons = [...document.querySelectorAll("[data-carousel-direction]")];
+
+function moveCarousels(direction) {
+  const multiplier = direction === "previous" ? -1 : 1;
+  carouselRows.forEach((row, index) => {
+    const distance = Math.max(280, row.clientWidth * 0.72) * multiplier;
+    row.scrollBy({
+      left: index % 2 === 0 ? distance : distance * 0.85,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
+  });
+}
+
+carouselButtons.forEach((button) => {
+  button.addEventListener("click", () => moveCarousels(button.dataset.carouselDirection));
+});
+
+carouselRows.forEach((row) => {
+  row.tabIndex = 0;
+  row.setAttribute("aria-label", "写真を横方向に閲覧");
+  row.addEventListener("keydown", (event) => {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    row.scrollBy({
+      left: (event.key === "ArrowLeft" ? -1 : 1) * Math.max(240, row.clientWidth * 0.7),
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
+  });
+});

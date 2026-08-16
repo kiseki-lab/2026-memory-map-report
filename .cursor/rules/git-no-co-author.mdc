@@ -1,0 +1,11 @@
+---
+description: Git コミットに Co-authored-by を付けない
+alwaysApply: true
+---
+
+# Git コミット
+
+- コミットメッセージに `Co-authored-by:` トレーラーを**付けない**
+- Cursor / AI / エージェントを共著者として追加しない
+- `--trailer` や `--co-author` 相当の指定も使わない
+- コミット作者はユーザー本人のみとする

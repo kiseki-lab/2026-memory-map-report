@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="4980" viewBox="0 0 390 4980">
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#d8d8d8" stroke-width="1"/>
+    </pattern>
+    <style>
+      .bg { fill: #f5f5f2; }
+      .paper { fill: #fff; }
+      .ink { fill: #171717; }
+      .muted { fill: #666; }
+      .line { stroke: #171717; stroke-width: 2; fill: none; }
+      .thin { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .media { fill: #d8d8d5; stroke: #171717; stroke-width: 1.5; }
+      .panel { fill: #fff; stroke: #171717; stroke-width: 1.5; }
+      .label { font: 700 11px Arial, sans-serif; letter-spacing: 1px; fill: #171717; }
+      .small { font: 11px Arial, sans-serif; fill: #555; }
+      .body { font: 15px Arial, sans-serif; fill: #2a2a2a; }
+      .h1 { font: 700 30px Arial, sans-serif; fill: #171717; }
+      .h2 { font: 700 26px Arial, sans-serif; fill: #171717; }
+      .h3 { font: 700 19px Arial, sans-serif; fill: #171717; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="390" height="4980"/>
+
+  <!-- Hero -->
+  <rect class="media" x="0" y="0" width="390" height="690"/>
+  <line class="thin" x1="0" y1="0" x2="390" y2="690"/>
+  <line class="thin" x1="390" y1="0" x2="0" y2="690"/>
+  <rect x="0" y="0" width="390" height="64" fill="#171717" opacity=".18"/>
+  <text x="20" y="39" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#fff">2026 / 思い出マップ</text>
+  <text x="344" y="39" font-family="Arial, sans-serif" font-size="20" fill="#fff">☰</text>
+  <rect x="16" y="510" width="358" height="132" fill="#fff" opacity=".94"/>
+  <text class="label" x="34" y="543">HOME COMING DAY / 06.20</text>
+  <text class="h3" x="34" y="582">卒業生の思い出を集め、</text>
+  <text class="h3" x="34" y="610">地図に表示した。</text>
+  <text class="small" x="16" y="674">実写動画 / 無音 / 停止操作あり</text>
+
+  <!-- Overview -->
+  <rect class="paper" x="0" y="690" width="390" height="550"/>
+  <text class="label" x="20" y="752">00 / OVERVIEW</text>
+  <text class="h2" x="20" y="803">何をつくったゼミか</text>
+  <text class="body" x="20" y="842">活動の概要を短い事実で説明する。</text>
+  <rect class="panel" x="20" y="890" width="350" height="275"/>
+  <line class="thin" x1="20" y1="958" x2="370" y2="958"/>
+  <line class="thin" x1="20" y1="1026" x2="370" y2="1026"/>
+  <line class="thin" x1="20" y1="1094" x2="370" y2="1094"/>
+  <text class="label" x="40" y="931">期間</text>
+  <text class="body" x="130" y="931">2026年4月—</text>
+  <text class="label" x="40" y="999">本番</text>
+  <text class="body" x="130" y="999">Home Coming Day</text>
+  <text class="label" x="40" y="1067">制作</text>
+  <text class="body" x="130" y="1067">古地図 / Web / Unity</text>
+  <text class="label" x="40" y="1135">目的</text>
+  <text class="body" x="130" y="1135">思い出を集める</text>
+
+  <!-- Timeline -->
+  <rect x="0" y="1240" width="390" height="2050" fill="url(#grid)"/>
+  <rect x="10" y="1270" width="370" height="1980" fill="#f5f5f2" opacity=".95"/>
+  <text class="label" x="20" y="1325">01 / ACTIVITY TIMELINE</text>
+  <text class="h2" x="20" y="1370">4月から、その先まで</text>
+
+  <!-- sticky date rail -->
+  <rect class="panel" x="20" y="1410" width="350" height="86"/>
+  <text class="small" x="34" y="1440">APR　　　 MAY　　　 JUN　　　 JUL →</text>
+  <line class="thin" x1="34" y1="1455" x2="356" y2="1455"/>
+  <text class="label" x="34" y="1481">15</text>
+  <text class="label" x="76" y="1481">29</text>
+  <text class="label" x="119" y="1481">13</text>
+  <text class="label" x="162" y="1481">27</text>
+  <text class="label" x="302" y="1481">20</text>
+  <text class="label" x="342" y="1481">05</text>
+  <rect x="207" y="1462" width="34" height="27" fill="#171717"/>
+  <text x="217" y="1481" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#fff">17</text>
+  <text class="label" x="258" y="1481">20</text>
+  <text class="small" x="20" y="1522">タイムライン区間では日付レールを上部に固定</text>
+
+  <line class="line" x1="38" y1="1560" x2="38" y2="3150"/>
+
+  <circle cx="38" cy="1600" r="6" fill="#fff" stroke="#171717" stroke-width="2"/>
+  <text class="label" x="62" y="1593">04.15 / 活動</text>
+  <text class="h3" x="62" y="1627">ゼミが始動</text>
+  <text class="body" x="62" y="1658">共有場所を整え、企画を始めた。</text>
+  <line class="thin" x1="62" y1="1690" x2="370" y2="1690"/>
+
+  <circle cx="38" cy="1740" r="6" fill="#fff" stroke="#171717" stroke-width="2"/>
+  <text class="label" x="62" y="1733">04.29 / 決定</text>
+  <text class="h3" x="62" y="1767">二つの班に分かれる</text>
+  <text class="body" x="62" y="1798">古地図とデジタル表示を並行制作。</text>
+  <line class="thin" x1="62" y1="1830" x2="370" y2="1830"/>
+
+  <circle cx="38" cy="1880" r="6" fill="#fff" stroke="#171717" stroke-width="2"/>
+  <text class="label" x="62" y="1873">05.27—28 / 苦労 → 決定</text>
+  <text class="h3" x="62" y="1907">進め方を変える</text>
+  <text class="body" x="62" y="1938">素材と担当をタスクで見える化。</text>
+
+  <!-- key achievement -->
+  <circle cx="38" cy="2045" r="8" fill="#171717"/>
+  <rect class="panel" x="62" y="1985" width="308" height="590"/>
+  <text class="label" x="80" y="2020">06.17 / 苦労 + 達成</text>
+  <text class="h3" x="80" y="2055">投稿がUnityへ</text>
+  <text class="h3" x="80" y="2080">リアルタイムに届く</text>
+  <rect class="media" x="80" y="2110" width="272" height="205"/>
+  <line class="thin" x1="80" y1="2110" x2="352" y2="2315"/>
+  <line class="thin" x1="352" y1="2110" x2="80" y2="2315"/>
+  <text class="small" x="174" y="2220">修正前後 / 動画</text>
+  <text class="label" x="80" y="2350">困ったこと</text>
+  <text class="body" x="80" y="2380">表示位置が合わない</text>
+  <text class="label" x="80" y="2425">原因</text>
+  <text class="body" x="80" y="2455">Unityの単位設定</text>
+  <text class="label" x="80" y="2500">できたこと</text>
+  <text class="body" x="80" y="2530">リアルタイム表示</text>
+
+  <!-- HCD -->
+  <circle cx="38" cy="2660" r="8" fill="#171717"/>
+  <text class="label" x="62" y="2648">06.20 / 本番</text>
+  <text class="h3" x="62" y="2682">Home Coming Day</text>
+  <rect class="media" x="62" y="2710" width="308" height="230"/>
+  <line class="thin" x1="62" y1="2710" x2="370" y2="2940"/>
+  <line class="thin" x1="370" y1="2710" x2="62" y2="2940"/>
+  <text class="small" x="160" y="2830">会場写真 / 動画</text>
+  <text class="body" x="62" y="2978">投稿から投影までを本番で動かした。</text>
+
+  <circle cx="38" cy="3040" r="6" fill="#fff" stroke="#171717" stroke-width="2"/>
+  <text class="label" x="62" y="3033">06.24—07.23</text>
+  <text class="h3" x="62" y="3067">振り返りと次の展示</text>
+  <text class="body" x="62" y="3098">短い項目はまとめて表示する。</text>
+
+  <!-- Day -->
+  <rect class="media" x="0" y="3290" width="390" height="740"/>
+  <line class="thin" x1="0" y1="3290" x2="390" y2="4030"/>
+  <line class="thin" x1="390" y1="3290" x2="0" y2="4030"/>
+  <rect x="16" y="3330" width="230" height="90" fill="#fff"/>
+  <text class="label" x="34" y="3362">02 / THE DAY</text>
+  <text class="h3" x="34" y="3395">6月20日、本番</text>
+  <g>
+    <rect x="16" y="3745" width="112" height="100" fill="#fff"/>
+    <rect x="139" y="3745" width="112" height="100" fill="#fff"/>
+    <rect x="262" y="3745" width="112" height="100" fill="#fff"/>
+    <rect x="16" y="3855" width="173" height="110" fill="#fff"/>
+    <rect x="200" y="3855" width="174" height="110" fill="#fff"/>
+    <text class="label" x="28" y="3780">01 入場</text>
+    <text class="label" x="151" y="3780">02 古地図</text>
+    <text class="label" x="274" y="3780">03 付箋</text>
+    <text class="label" x="28" y="3890">04 撮影・確認</text>
+    <text class="label" x="212" y="3890">05 Unity表示</text>
+  </g>
+
+  <!-- Technical -->
+  <rect class="paper" x="0" y="4030" width="390" height="620"/>
+  <text class="label" x="20" y="4090">03 / TECHNICAL NOTES</text>
+  <text class="h2" x="20" y="4135">できるまでに、</text>
+  <text class="h2" x="20" y="4168">何があったか</text>
+  <text class="label" x="20" y="4225">01 / OCR</text>
+  <text class="h3" x="20" y="4255">付箋を撮影して確認する</text>
+  <rect class="media" x="20" y="4280" width="105" height="130"/>
+  <rect class="media" x="142" y="4280" width="105" height="130"/>
+  <rect class="media" x="264" y="4280" width="106" height="130"/>
+  <text class="label" x="20" y="4460">02 / COORDINATE</text>
+  <text class="h3" x="20" y="4490">ずれた場所を合わせる</text>
+  <rect class="media" x="20" y="4510" width="165" height="105"/>
+  <rect class="media" x="205" y="4510" width="165" height="105"/>
+
+  <!-- Reflection -->
+  <rect x="0" y="4650" width="390" height="250" fill="url(#grid)"/>
+  <text class="label" x="20" y="4700">04 / REFLECTION</text>
+  <text class="h3" x="20" y="4735">うまくいったこと。</text>
+  <text class="h3" x="20" y="4762">次に直すこと。</text>
+  <rect class="panel" x="20" y="4790" width="165" height="78"/>
+  <rect class="panel" x="205" y="4790" width="165" height="78"/>
+  <text class="label" x="32" y="4820">うまくいった</text>
+  <text class="small" x="32" y="4848">分担 / システム</text>
+  <text class="label" x="217" y="4820">次に直す</text>
+  <text class="small" x="217" y="4848">説明 / 共有</text>
+  <rect class="ink" x="0" y="4900" width="390" height="80"/>
+  <text x="20" y="4947" font-family="Arial, sans-serif" font-size="12" fill="#fff">これから　　資料　　クレジット</text>
+</svg>

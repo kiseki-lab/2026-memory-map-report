@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f2f0e9" />
+    <title>思い出マップ自主企画ゼミ｜2026年 活動報告</title>
+    <meta name="description" content="麗澤大学「思い出マップ」自主企画ゼミの活動報告。年代別地図、OCR、データ連携、3D表示を組み合わせた2026年春の実践を記録します。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">本文へ移動</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top"><span>REITAKU UNIVERSITY</span><strong>MEMORY MAP / 2026</strong></a>
+      <nav aria-label="ページ内ナビゲーション">
+        <a href="#timeline">活動記録</a>
+        <a href="#outputs">成果物</a>
+        <a href="#credits">クレジット</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="top" class="cover" aria-labelledby="cover-title">
+        <p class="eyebrow">麗澤大学 2026年度春 / 自主企画ゼミ活動報告</p>
+        <h1 id="cover-title">思い出マップ</h1>
+        <p class="supervisor"><span>SUPERVISOR</span> Yoh Kawano</p>
+        <p class="members" aria-label="参加メンバー">
+          Fuga Nakamura <span>/</span> Keitaro Takahashi <span>/</span> Hikaru Kobayashi <span>/</span> Soichiro Kanbe<br />
+          Moriumi Maeda <span>/</span> Shion Oba <span>/</span> Aoi Omori <span>/</span> Yurino Nakamura <span>/</span> Kenta Nakatani
+        </p>
+
+        <div class="introduction">
+          <p class="drop-cap">昨年度、滋賀県高島市で集めた「場所と思い出」をきっかけに、学生が自分たちで次の展示を企画した。舞台は麗澤大学のHome Coming Day。年代の異なるキャンパス地図を並べ、卒業生が在学当時の出来事を付箋へ記録できる場をつくった。</p>
+          <p>第2期となる今回は、紙の地図だけでなく、付箋の撮影、手書きOCR、人による確認、データベースへの保存、3D空間への表示までを一つの流れとして開発した。本ページでは、4月の企画開始から6月20日の本番まで、学生が何を決め、作り、直したかを記録する。</p>
+        </div>
+      </section>
+
+      <section class="field-notes" aria-label="活動写真">
+        <div class="carousel-row carousel-row--development" data-carousel>
+          <figure class="wide"><img src="./assets/carousel/1_開発・準備/1778654550315.jpg" alt="開発・準備の記録：思い出マップの開発画面" /></figure>
+          <figure class="wide"><img src="./assets/carousel/1_開発・準備/1778654550489.jpg" alt="開発・準備の記録：思い出マップの表示画面" /></figure>
+          <figure class="wide"><img src="./assets/carousel/1_開発・準備/image (5).png" alt="開発・準備の記録：システムの画面" /></figure>
+          <figure class="wide"><img src="./assets/carousel/1_開発・準備/スクリーンショット 2026-06-05 0.44.31.png" alt="開発・準備の記録：地図表示のスクリーンショット" /></figure>
+          <figure class="wide"><img src="./assets/carousel/1_開発・準備/viewer-hero.jpg" alt="開発・準備の記録：麗澤大学の3D地図と投稿を表示したWebビューア" /></figure>
+          <figure><img src="./assets/carousel/1_開発・準備/admin-review.png" alt="開発・準備の記録：OCR結果を人が確認する管理画面" /></figure>
+          <figure><img src="./assets/carousel/1_開発・準備/capture-form.png" alt="開発・準備の記録：付箋をスマートフォンで撮影する入力画面" /></figure>
+          <figure><img src="./assets/carousel/1_開発・準備/IMG_20260616_223334887.jpg" alt="開発・準備の記録：開発中の作業風景" /></figure>
+          <figure><img src="./assets/carousel/1_開発・準備/IMG_8695.jpg" alt="開発・準備の記録：地図を使った検討の様子" /></figure>
+          <figure class="wide"><video autoplay muted loop playsinline preload="metadata" poster="./assets/carousel/1_開発・準備/パターン-1-ノーマル-poster.jpg" aria-label="開発・準備の記録：3D地図の表示動画"><source src="./assets/carousel/1_開発・準備/パターン-1-ノーマル-web.mp4" type="video/mp4" /></video></figure>
+          <figure class="wide"><video autoplay muted loop playsinline preload="metadata" poster="./assets/carousel/1_開発・準備/画面収録-0616-poster.jpg" aria-label="開発・準備の記録：開発画面の収録動画"><source src="./assets/carousel/1_開発・準備/画面収録-0616-web.mp4" type="video/mp4" /></video></figure>
+        </div>
+        <div class="carousel-row carousel-row--production" data-carousel>
+          <figure><img src="./assets/carousel/2_当日/IMG_20260620_121825438.jpg" alt="当日の記録：Home Coming Dayの会場風景" /></figure>
+          <figure class="wide"><img src="./assets/carousel/2_当日/IMG_20260620_153904702.jpg" alt="当日の記録：展示会場の様子" /></figure>
+          <figure class="wide"><img src="./assets/carousel/2_当日/IMG_20260620_154144588.jpg" alt="当日の記録：展示を体験する様子" /></figure>
+          <figure class="wide"><img src="./assets/carousel/2_当日/IMG_3581.jpg" alt="当日の記録：会場での活動風景" /></figure>
+          <figure class="wide"><img src="./assets/carousel/2_当日/PXL_20260610_021032908.MP.jpg" alt="当日の記録：展示の準備風景" /></figure>
+          <figure class="wide"><img src="./assets/carousel/2_当日/PXL_20260610_023759696.MP.jpg" alt="当日の記録：会場での展示風景" /></figure>
+          <figure class="wide"><video autoplay muted loop playsinline preload="metadata" poster="./assets/carousel/2_当日/IMG_3564-poster.jpg" aria-label="当日の記録：会場の動画"><source src="./assets/carousel/2_当日/IMG_3564-web.mp4" type="video/mp4" /></video></figure>
+          <figure class="wide"><video autoplay muted loop playsinline preload="metadata" poster="./assets/carousel/2_当日/IMG_3732-poster.jpg" aria-label="当日の記録：展示の動画"><source src="./assets/carousel/2_当日/IMG_3732-web.mp4" type="video/mp4" /></video></figure>
+          <figure class="wide"><video autoplay muted loop playsinline preload="metadata" poster="./assets/carousel/2_当日/IMG_8439-poster.jpg" aria-label="当日の記録：会場の動画"><source src="./assets/carousel/2_当日/IMG_8439-web.mp4" type="video/mp4" /></video></figure>
+          <figure class="wide"><video autoplay muted loop playsinline preload="metadata" poster="./assets/carousel/2_当日/VID_20260620_164912173-poster.jpg" aria-label="当日の記録：本番の記録動画"><source src="./assets/carousel/2_当日/VID_20260620_164912173-web.mp4" type="video/mp4" /></video></figure>
+        </div>
+      </section>
+
+      <section class="synopsis" aria-label="活動概要">
+        <div class="synopsis-copy">
+          <div class="synopsis-col">
+            <p class="drop-cap">2026年春、麗澤大学の自主企画ゼミとして集まった学生が、卒業生と在校生の記憶を同じ地図の上へ集める展示を企画し、4月の構想から6月20日の本番まで、決めたこと、作ったもの、直したところを時系列で記録する。</p>
+            <p>アナログ班は年代の異なるキャンパス地図を印刷してラミネート加工し、六つのカテゴリに色を割り当てた付箋と紐で、思い出とその場所を紙の上に結ぶ。技術班はスマートフォンでの付箋撮影、手書きOCR、人の目による確認、データベースへの保存、Unityでのリアルタイム表示までを一本の経路としてつなぐ。</p>
+          </div>
+          <div class="synopsis-col">
+            <p>細部の完成度より先に端から端まで通す判断を置く。本番三日前には投稿地点と3D上の表示位置がずれ、原因がUnityの単位設定にあると突き止めて座標を補正し、6月20日のHome Coming Dayで紙と3Dが同じ会場で動く展示を成立させる。</p>
+            <p>当日の分担とシステムの本番稼働まで、準備の過程で決めたことと直したことを記録する。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="timeline" class="timeline-section" aria-labelledby="timeline-title">
+        <div class="section-heading timeline-heading">
+          <p class="chapter">01 / ACTIVITY NOTES</p>
+          <h2 id="timeline-title">活動カレンダー</h2>
+        </div>
+
+        <div class="date-rail" aria-label="活動日を選ぶ">
+          <span>MAR—JUN</span>
+          <button type="button" data-target="entry-0328">03.28</button>
+          <button type="button" data-target="entry-0415">04.15</button>
+          <button type="button" data-target="entry-0422">04.22</button>
+          <button type="button" data-target="entry-0429">04.29</button>
+          <button type="button" data-target="entry-0502">05.02</button>
+          <button type="button" data-target="entry-0513">05.13</button>
+          <button type="button" data-target="entry-0520">05.20</button>
+          <button type="button" data-target="entry-0527">05.27</button>
+          <button type="button" data-target="entry-0528">05.28</button>
+          <button type="button" data-target="entry-0529">05.29</button>
+          <button type="button" data-target="entry-made-0603">06.03</button>
+          <button type="button" data-target="entry-made-0604">06.04</button>
+          <button type="button" data-target="entry-made-0605">06.05</button>
+          <button type="button" data-target="entry-made-0609">06.09</button>
+          <button type="button" data-target="entry-made-0610">06.10</button>
+          <button type="button" data-target="entry-made-0612-ocr">06.12</button>
+          <button type="button" data-target="entry-made-0613">06.13</button>
+          <button type="button" data-target="entry-made-0615-shopping">06.15</button>
+          <button type="button" data-target="entry-made-0616">06.16</button>
+          <button type="button" data-target="entry-made-0617-site">06.17</button>
+          <button type="button" data-target="entry-made-0618">06.18</button>
+          <button type="button" data-target="entry-made-0619-bgm">06.19</button>
+          <button type="button" data-target="entry-made-0620">06.20</button>
+        </div>
+
+        <div class="timeline-layout">
+          <div class="timeline-list timeline-list--madebymoriumi">
+            <article id="entry-0328" class="timeline-entry compact" data-date="03.28"><p class="entry-meta"><time datetime="2026-03-28">03.28</time></p><h3>自主企画ゼミの準備</h3><p>メンバー集め、開講日決めなど。</p></article>
+            <article id="entry-0415" class="timeline-entry" data-date="04.15"><p class="entry-meta"><time datetime="2026-04-15">04.15</time></p><h3>自主企画ゼミが始動</h3><p>ゼミについての認識をすり合わせ、Home Coming Dayに参加すること、その後も続けられる思い出マップの企画を話し合った。</p><p class="entry-note">＋ 追加メンバーが参加！</p></article>
+            <article id="entry-0422" class="timeline-entry compact" data-date="04.22"><p class="entry-meta"><time datetime="2026-04-22">04.22</time></p><h3>UIの模索</h3><p>アルバム、フィルム、日記、カレンダーなど、思い出を表示するUI（ユーザーインターフェイス）について話し合った。</p></article>
+            <article id="entry-0429" class="timeline-entry" data-date="04.29"><p class="entry-meta"><time datetime="2026-04-29">04.29</time></p><h3>アナログ班とデジタル班に分かれる</h3><p>地図と年代写真の展示と、投稿を3D空間へ表示する仕組みを並行して進めることにした。</p></article>
+            <article id="entry-0502" class="timeline-entry media-entry" data-date="05.02"><p class="entry-meta"><time datetime="2026-05-02">05.02</time></p><h3>Unityのデモ作成</h3><p>HCD当日のプロジェクションマッピングの最初のテスト。</p><figure class="entry-media"><video controls playsinline preload="metadata" poster="./assets/viewer-hero.jpg"><source src="./assets/timeline/0502-unity-demo.mp4" type="video/mp4" />お使いのブラウザは動画再生に対応していません。</video><figcaption>プロジェクションマッピングの最初のテスト</figcaption></figure></article>
+            <article id="entry-0513" class="timeline-entry media-entry media-entry--portrait" data-date="05.13"><p class="entry-meta"><time datetime="2026-05-13">05.13</time></p><h3>HCD当日の会場の導線を考える</h3><p>見る場所、付箋を書く場所、デジタル表示を見る場所の関係を検討した。</p><figure class="entry-media"><img src="./assets/timeline/0513-flow.jpg" alt="会場の見る場所、付箋を書く場所、デジタル表示を見る場所を手書きで検討した図" loading="lazy" /><figcaption>会場の導線メモ</figcaption></figure></article>
+            <article id="entry-0520" class="timeline-entry decision" data-date="05.20"><p class="entry-meta"><time datetime="2026-05-20">05.20</time></p><h3>展示の言葉を決める</h3><blockquote>あなたの青春が同じ地図上で出会う。<br />離れていても思い出はキャンパスに。</blockquote></article>
+            <article id="entry-0527" class="timeline-entry media-entry" data-date="05.27"><p class="entry-meta"><time datetime="2026-05-27">05.27</time></p><h3>3D開発が進行</h3><p>デジタル班の血の涙によって、Unityでの建物データの表示、本のオープニングアニメーションの土台が完成！</p><div class="entry-media pair"><figure><video controls playsinline preload="metadata" poster="./assets/viewer-hero.jpg"><source src="./assets/timeline/0527-unity.mp4" type="video/mp4" /></video><figcaption>Unityでの3D表示</figcaption></figure><figure><video controls playsinline preload="metadata" poster="./assets/timeline/0527-blender-first-frame.jpg"><source src="./assets/timeline/0527-blender.mp4" type="video/mp4" /></video><figcaption>Blenderでのオープニングアニメーション</figcaption></figure></div></article>
+            <article id="entry-0528" class="timeline-entry media-entry" data-date="05.28"><p class="entry-meta"><time datetime="2026-05-28">05.28</time></p><h3>「写真でみる麗澤大学の50年」を入手</h3><p>大学の50周年記念冊子を入手し、その写真も活用することに。</p><div class="entry-media pair"><figure><img src="./assets/timeline/0528-book-campus.jpg" alt="麗澤大学のキャンパス写真が並ぶ50周年記念冊子" loading="lazy" /><figcaption>冊子より：キャンパス</figcaption></figure><figure><img src="./assets/timeline/0528-book-spring.jpg" alt="桜の写真が掲載された麗澤大学の50周年記念冊子" loading="lazy" /><figcaption>冊子より：春のキャンパス</figcaption></figure></div></article>
+            <article id="entry-0529" class="timeline-entry media-entry media-entry--portrait" data-date="05.29"><p class="entry-meta"><time datetime="2026-05-29">05.29</time></p><h3>麗澤周辺マップの印刷</h3><p>航空写真を印刷してそれを貼り合わせ、1枚の大きなマップを作成。</p><figure class="entry-media"><img src="./assets/timeline/0529-map.jpg" alt="印刷した航空写真を貼り合わせた大きな麗澤周辺マップ" loading="lazy" /><figcaption>貼り合わせた航空写真のマップ</figcaption></figure></article>
+            <article id="entry-made-0603" class="timeline-entry compact" data-date="06.03"><p class="entry-meta"><time datetime="2026-06-03">06.03</time></p><h3>台風による休講</h3><p>台風によって活動が休講に。再来週に迫ったHCDに向けての準備は継続！</p></article>
+            <article id="entry-made-0604" class="timeline-entry" data-date="06.04"><p class="entry-meta"><time datetime="2026-06-04">06.04</time></p><h3>アナログマップが完成</h3><p>1960、1970、1980、2005、2025年のアナログマップが完成。</p></article>
+            <article id="entry-made-0605" class="timeline-entry media-entry" data-date="06.05"><p class="entry-meta"><time datetime="2026-06-05">06.05</time></p><h3>麗澤大学の3Dデータが完成</h3><p>Blenderで作成した3Dデータを、実際に思い出を表示するUnityで開くことに成功！ ベイクを用いてテクスチャを単一化するなどの工夫も。</p><figure class="entry-media"><img src="./assets/timeline/0605-3d-data.jpg" alt="Blenderで表示した麗澤大学の3Dデータ" loading="lazy" /><figcaption>Blenderで完成した3Dデータ</figcaption></figure></article>
+            <article id="entry-made-0609" class="timeline-entry" data-date="06.09"><p class="entry-meta"><time datetime="2026-06-09">06.09</time></p><h3>投稿内容と当日準備を具体化</h3><p>過去の展示を共有し、当日必要なものと担当を洗い出した。投稿内容（本文の例やカテゴリなど）や、データ形式の確認も。</p></article>
+            <article id="entry-made-0610" class="timeline-entry" data-date="06.10"><p class="entry-meta"><time datetime="2026-06-10">06.10</time></p><h3>会場確認</h3><p>HCD当日の会場であるR Loungeを確認。アナログマップだけでなくプロジェクター、スクリーンも準備しセッティングを行った。</p></article>
+            <article id="entry-made-0612-ocr" class="timeline-entry" data-date="06.12"><p class="entry-meta"><time datetime="2026-06-12">06.12</time></p><h3>OCRのテスト</h3><p>思い出を3D空間にアップロードするためのWebアプリ、それに付随するOCR（文字認識）を開発した。実際にメンバーに試してもらいUI、UXを磨き上げた。</p></article>
+            <article id="entry-made-0612-3d" class="timeline-entry media-entry" data-date="06.12"><p class="entry-meta"><time datetime="2026-06-12">06.12</time></p><h3>3D効果、アニメーションの改良</h3><p>3Dマップのワイヤーフレーム効果や、アニメーションをブラッシュアップ！</p><div class="entry-media pair"><figure><video controls playsinline preload="metadata" poster="./assets/timeline/0612-wireframe-poster.jpg"><source src="./assets/timeline/0612-wireframe.mp4" type="video/mp4" /></video><figcaption>3Dマップのワイヤーフレーム効果</figcaption></figure><figure><video controls playsinline preload="metadata" poster="./assets/timeline/0612-animation-poster.jpg"><source src="./assets/timeline/0612-animation.mp4" type="video/mp4" /></video><figcaption>改良したアニメーション</figcaption></figure></div></article>
+            <article id="entry-made-0613" class="timeline-entry media-entry media-entry--portrait" data-date="06.13"><p class="entry-meta"><time datetime="2026-06-13">06.13</time></p><h3>アナログマップとWebアプリのキャリブレーション</h3><p>Webアプリの座標指定ツールのために、アナログマップの端の緯度経度を座標系として調べる必要が出た。手分けをして緯度経度を調べ、無事同期完了。</p><figure class="entry-media"><img src="./assets/timeline/0613-calibration.jpg" alt="アナログマップとWebアプリの座標を合わせる画面" loading="lazy" /><figcaption>座標指定ツールの確認画面</figcaption></figure></article>
+            <article id="entry-made-0615-shopping" class="timeline-entry media-entry media-entry--portrait" data-date="06.15"><p class="entry-meta"><time datetime="2026-06-15">06.15</time></p><h3>HCD当日のための買い出し</h3><p>思い出カードのためのシールや付箋、糸などを買い出した。</p><figure class="entry-media"><img src="./assets/timeline/0615-shopping.jpg" alt="思い出カードに使うシールや付箋" loading="lazy" /><figcaption>思い出カードの材料</figcaption></figure></article>
+            <article id="entry-made-0615-print" class="timeline-entry media-entry" data-date="06.15"><p class="entry-meta"><time datetime="2026-06-15">06.15</time></p><h3>校舎の3Dプリンター印刷が完了</h3><p>アナログマップの校舎を立体的に見せるため、校舎だけを3Dプリンターで印刷し重ねて置くことに。外部メンバーの協力もあって建物データから印刷が完了！</p><div class="entry-media pair"><figure><img src="./assets/timeline/0615-3d-print.jpg" alt="3Dプリンターで印刷した校舎" loading="lazy" /><figcaption>印刷された校舎</figcaption></figure><figure><img src="./assets/timeline/0615-3d-campus.jpg" alt="校舎を3D化したBlenderの画面" loading="lazy" /><figcaption>建物データからの3D化</figcaption></figure></div></article>
+            <article id="entry-made-0616" class="timeline-entry" data-date="06.16"><p class="entry-meta"><time datetime="2026-06-16">06.16</time></p><h3>Webアプリ改良とデータベース接続</h3><p>OCRの精度を補うため、Webアプリにレビュー機能を追加。人間がレビューしてからデータがアップロードされるように。データベース（Supabase）も環境が整い、連携可能になった。</p></article>
+            <article id="entry-made-0617-site" class="timeline-entry compact" data-date="06.17"><p class="entry-meta"><time datetime="2026-06-17">06.17</time></p><h3>現地確認</h3><p>R Loungeで再確認。</p></article>
+            <article id="entry-made-0617-realtime" class="timeline-entry media-entry" data-date="06.17"><p class="entry-meta"><time datetime="2026-06-17">06.17</time></p><h3>投稿がUnityにリアルタイムに届く</h3><p>投稿をWebアプリで読み込み、Supabaseへアップロードし、それをUnityで読み込むフローが完成！ Unity側のキャリブレーションに少し詰まったが解決。</p><figure class="entry-media"><video controls playsinline preload="metadata" poster="./assets/timeline/0617-realtime-poster.jpg"><source src="./assets/timeline/0617-realtime.mp4" type="video/mp4" /></video><figcaption>WebアプリからUnityへ投稿を届ける流れ</figcaption></figure></article>
+            <article id="entry-made-0618" class="timeline-entry media-entry" data-date="06.18"><p class="entry-meta"><time datetime="2026-06-18">06.18</time></p><h3>アニメーションも改良</h3><p>どんどん改良されていく！！</p><figure class="entry-media"><video controls playsinline preload="metadata" poster="./assets/timeline/0618-animation-poster.jpg"><source src="./assets/timeline/0618-animation.mp4" type="video/mp4" /></video><figcaption>改良中のアニメーション</figcaption></figure></article>
+            <article id="entry-made-0619-bgm" class="timeline-entry media-entry" data-date="06.19"><p class="entry-meta"><time datetime="2026-06-19">06.19</time></p><h3>BGMの作成</h3><p>ビートメイクができるメンバーがブース内BGMとオープニングアニメーションのSEを制作。</p><div class="entry-audio pair"><figure><audio controls preload="metadata"><source src="./assets/timeline/0619-bgm-short.mp3" type="audio/mpeg" /></audio><figcaption>オープニングアニメーションのSE</figcaption></figure><figure><audio controls preload="metadata"><source src="./assets/timeline/0619-bgm-campanella.mp3" type="audio/mpeg" /></audio><figcaption>ブース内BGM</figcaption></figure></div></article>
+            <article id="entry-made-0619-guide" class="timeline-entry media-entry" data-date="06.19"><p class="entry-meta"><time datetime="2026-06-19">06.19</time></p><h3>来訪者用のガイドの作成</h3><p>HCDの来訪者用の、思い出作成のガイドを作成。ジャンル分けについても色分けしつつ提示。</p><div class="entry-media triple"><figure><img src="./assets/timeline/0619-guide-writing.jpg" alt="思い出カードの付箋の書き方ガイド" loading="lazy" /><figcaption>付箋の書き方</figcaption></figure><figure><img src="./assets/timeline/0619-guide-sticking.jpg" alt="思い出カードの付箋の貼り方ガイド" loading="lazy" /><figcaption>付箋の貼り方</figcaption></figure><figure><img src="./assets/timeline/0619-genres.jpg" alt="思い出のジャンルを色分けしたガイド" loading="lazy" /><figcaption>思い出のジャンル</figcaption></figure></div></article>
+            <article id="entry-made-0620" class="timeline-entry compact" data-date="06.20"><p class="entry-meta"><time datetime="2026-06-20">06.20</time></p><h3>HCD当日</h3></article>
+          </div>
+
+          <aside class="calendar-panel" aria-label="2026年3月から6月の活動カレンダー">
+            <div class="calendar-head"><span>2026</span><small>MAR—JUN</small></div>
+            <div class="calendar-weekdays" aria-hidden="true"><span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span></div>
+            <div class="calendar-months">
+              <section class="mini-month" data-month="3" aria-label="2026年3月"><h3><span>03</span> MAR</h3><div class="days"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><button data-target="entry-0328">28</button><span>29</span><span>30</span><span>31</span></div></section>
+              <section class="mini-month" data-month="4" aria-label="2026年4月"><h3><span>04</span> APR</h3><div class="days"><i></i><i></i><i></i><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><button data-target="entry-0415">15</button><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><button data-target="entry-0422">22</button><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><button data-target="entry-0429">29</button><span>30</span></div></section>
+              <section class="mini-month" data-month="5" aria-label="2026年5月"><h3><span>05</span> MAY</h3><div class="days"><i></i><i></i><i></i><i></i><i></i><span>1</span><button data-target="entry-0502">2</button><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><button data-target="entry-0513">13</button><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><button data-target="entry-0520">20</button><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><button data-target="entry-0527">27</button><button data-target="entry-0528">28</button><button data-target="entry-0529">29</button><span>30</span><span>31</span></div></section>
+              <section class="mini-month" data-month="6" aria-label="2026年6月"><h3><span>06</span> JUN</h3><div class="days"><i></i><span>1</span><span>2</span><button data-target="entry-made-0603">3</button><button data-target="entry-made-0604">4</button><button data-target="entry-made-0605">5</button><span>6</span><span>7</span><span>8</span><button data-target="entry-made-0609">9</button><button data-target="entry-made-0610">10</button><span>11</span><button data-target="entry-made-0612-ocr">12</button><button data-target="entry-made-0613">13</button><span>14</span><button data-target="entry-made-0615-shopping">15</button><button data-target="entry-made-0616">16</button><button data-target="entry-made-0617-site">17</button><button data-target="entry-made-0618">18</button><button data-target="entry-made-0619-bgm">19</button><button class="event-day" data-target="entry-made-0620">20</button><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span></div></section>
+            </div>
+          </aside>
+
+          <svg class="timeline-connector" aria-hidden="true"><path></path></svg>
+
+        </div>
+      </section>
+
+      <section id="outputs" class="outputs" aria-labelledby="outputs-title">
+        <div class="section-heading outputs-heading"><p class="chapter">02 / OUTPUTS</p><h2 id="outputs-title">成果物</h2><div class="outputs-heading-control"><p>制作中の成果物を開く</p><button class="outputs-toggle" type="button" aria-expanded="false" aria-controls="outputs-panel"><span>表示する</span><span aria-hidden="true">＋</span></button></div></div>
+
+        <div id="outputs-panel" class="outputs-panel" hidden>
+          <article class="output output--analog"><div class="output-number">01</div><div class="output-copy"><p class="output-label">EXPERIENCE / ANALOG</p><h3>年代別地図を、会話の入口にする</h3><p>卒業生が在学した年代を選べるよう、複数年代のキャンパス地図を制作した。付箋のカテゴリと場所を対応させ、紙そのものを思い出の収集装置として設計した。</p><dl><div><dt>制作</dt><dd>年代別地図、歴史写真、付箋、カテゴリ表示</dd></div><div><dt>課題</dt><dd>古地図の背景や参加方法を、立ち止まった人へ短く説明すること</dd></div></dl></div><figure><img src="./assets/hcd-scene-04.jpg" alt="年代別地図を配置した展示会場" /></figure></article>
+
+        <article class="output output--ocr"><div class="output-number">02</div><div class="output-copy"><p class="output-label">NEXT.JS / YOMITOKU</p><h3>手書き付箋を、スマートフォンで記録する</h3><p>Next.jsで撮影用Webアプリを制作し、付箋画像、カテゴリ、地図上の位置をSupabaseへ送信した。ローカルのOCR処理はCloudflare Tunnel経由で会場のスマートフォンへ配信した。</p><dl><div><dt>担当</dt><dd>Maeda Moriumi</dd></div><div><dt>工夫</dt><dd>縦長UI、画像上での座標指定、公開前レビュー</dd></div></dl></div><figure class="phone-shot"><img src="./assets/capture-form.png" alt="スマートフォン向けの付箋撮影画面" /></figure></article>
+
+        <article class="output output--data"><div class="output-number">03</div><div class="output-copy"><p class="output-label">SUPABASE / DATABASE</p><h3>保存と更新を、一つの基盤へ集める</h3><p>思い出の本文、カテゴリ、緯度経度、画像の参照先をSupabaseで管理した。新しい投稿を再読み込みなしでUnityへ届けるリアルタイム通信にも利用した。</p><dl><div><dt>担当</dt><dd>Takahashi Keitaro</dd></div><div><dt>役割</dt><dd>データ保存、画像参照、リアルタイム更新</dd></div></dl></div><div class="data-schema" role="img" aria-label="付箋からデータベースを経て3D表示へ届く流れ"><span>NOTE</span><b>→</b><span>REVIEW</span><b>→</b><span>DATABASE</span><b>→</b><span>3D</span></div></article>
+
+        <article class="output output--unity"><div class="output-number">04</div><div class="output-copy"><p class="output-label">UNITY / BLENDER</p><h3>投稿を、麗澤大学の3D空間へ置く</h3><p>Unityで投稿をリアルタイムに描画し、Shader Graphで思い出が浮かび上がる表現を作った。Blenderではキャンパスモデル、ワイヤーフレーム地図、開く本や紙のアニメーションを制作した。</p><dl><div><dt>担当</dt><dd>Oba Shion / Nakamura Yurino</dd></div><div><dt>工夫</dt><dd>座標変換、描画負荷、物理演算、マテリアルと光</dd></div></dl></div><figure><img src="./assets/hcd-scene-03.jpg" alt="スクリーンに投影されたUnityの3D表示" /></figure></article>
+
+          <article class="output output--web"><div class="output-number">05</div><div class="output-copy"><p class="output-label">THREE.JS / WEB VIEWER</p><h3>展示の外からも、3D地図を開けるようにする</h3><p>Unityで検証した位置や構成を参照し、Three.jsでブラウザ版を試作した。PCとスマートフォンから地図と投稿位置を確認できる。</p><p class="output-links"><a href="https://2026-hcd-memory-map-web.vercel.app/" target="_blank" rel="noreferrer">Webビューアを開く ↗</a><a href="https://github.com/novelsavage/2026HCD-memory-map-web" target="_blank" rel="noreferrer">GitHub ↗</a></p></div><figure><img src="./assets/viewer-hero.jpg" alt="Three.js版の思い出マップWebビューア" /></figure></article>
+        </div>
+      </section>
+
+      <section id="credits" class="credits" aria-labelledby="credits-title">
+        <div class="section-heading compact-heading"><p class="chapter">03 / CREDITS &amp; REPOSITORIES</p><h2 id="credits-title">クレジット、リポジトリ</h2></div>
+        <div class="credits-grid"><div><h3>MEMBERS</h3><p>Yoh Kawano<br />Fuga Nakamura<br />Keitaro Takahashi<br />Hikaru Kobayashi<br />Soichiro Kanbe<br />Moriumi Maeda<br />Shion Oba<br />Aoi Omori<br />Yurino Nakamura<br />Kenta Nakatani</p></div><div><h3>PUBLIC REPOSITORIES</h3><p><a href="https://github.com/novelsavage/2026HCD-memory-map-ocr" target="_blank" rel="noreferrer">OCR Web application ↗</a><br /><a href="https://github.com/ObaShion/hcd-mapping-v2" target="_blank" rel="noreferrer">Unity mapping ↗</a><br /><a href="https://github.com/novelsavage/2026HCD-memory-map-web" target="_blank" rel="noreferrer">Three.js Web viewer ↗</a><br /><a href="https://github.com/kiseki-lab" target="_blank" rel="noreferrer">kiseki-lab ↗</a></p></div></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><p>麗澤大学「思い出マップ」自主企画ゼミ / 2026</p><a href="#top">PAGE TOP ↑</a></footer>
+  </body>
+</html>

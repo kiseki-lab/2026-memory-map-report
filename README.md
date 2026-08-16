@@ -14,7 +14,7 @@ python3 -m http.server 4173 --directory memory-map-site
 
 - Home Coming Dayで行ったアナログ思い出マップの体験
 - スマホ撮影、手書きOCR、レビュー、データ配信、Unity表示の仕組み
-- 2026年4月から7月までの活動経緯と振り返り
+- 2026年3月28日から6月20日までの活動経緯
 - 3D Webビューアと関連する公開GitHubリポジトリ
 
 ## 公開時の注意

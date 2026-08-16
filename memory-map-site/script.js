@@ -1,17 +1,19 @@
 const timelineLayout = document.querySelector(".timeline-layout");
 const connector = document.querySelector(".timeline-connector");
 const connectorPath = connector?.querySelector("path");
-const entries = [...document.querySelectorAll(".timeline-entry")];
+const entries = [...document.querySelectorAll(".timeline-list--madebymoriumi .timeline-entry")];
 const dateButtons = [...document.querySelectorAll(".date-rail [data-target], .calendar-panel [data-target]")];
 const monthSections = [...document.querySelectorAll(".mini-month[data-month]")];
-const timelineList = document.querySelector(".timeline-list");
+const timelineList = document.querySelector(".timeline-list--madebymoriumi");
 const calendarMonths = document.querySelector(".calendar-months");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const outputsToggle = document.querySelector(".outputs-toggle");
+const outputsPanel = document.querySelector("#outputs-panel");
 
 const ENTRY_MARKER_OFFSET = 34;
 const ENTRY_MARKER_SIZE = 10;
 
-let activeEntry = entries[0] ?? null;
+let activeEntry = null;
 let frameRequested = false;
 let selectionLockUntil = 0;
 let calendarScrollTarget = null;
@@ -19,15 +21,56 @@ let timelineLoopRunning = false;
 const CALENDAR_SCROLL_EASE = 0.14;
 
 function buttonsFor(entry) {
-  return dateButtons.filter((button) => button.dataset.target === entry?.id);
+  if (!entry) return [];
+
+  return dateButtons.filter((button) => {
+    if (button.dataset.target === entry.id) return true;
+    const targetEntry = document.getElementById(button.dataset.target);
+    return targetEntry?.dataset.date === entry.dataset.date;
+  });
+}
+
+function calendarButtonFor(entry) {
+  if (!entry) return null;
+
+  return [...document.querySelectorAll(".calendar-panel [data-target]")].find((button) => {
+    if (button.dataset.target === entry.id) return true;
+    const targetEntry = document.getElementById(button.dataset.target);
+    return targetEntry?.dataset.date === entry.dataset.date;
+  }) ?? null;
 }
 
 function setActiveMonth(entry) {
   const month = Number(entry?.dataset.date?.split(".")[0]);
-  const visibleMonth = Math.max(4, Math.min(8, month || 4));
+  const visibleMonth = Math.max(3, Math.min(6, month || 3));
 
   monthSections.forEach((section) => {
     section.classList.toggle("active", Number(section.dataset.month) === visibleMonth);
+  });
+}
+
+function resetVideoToPoster(video) {
+  video.pause();
+  video.currentTime = 0;
+  video.load();
+  video.dataset.timelineStarted = "false";
+}
+
+function playVideosForEntry(entry) {
+  entry.querySelectorAll("video").forEach((video) => {
+    if (video.dataset.timelineBound !== "true") {
+      video.dataset.timelineBound = "true";
+      video.addEventListener("ended", () => resetVideoToPoster(video));
+    }
+
+    if (video.dataset.timelineStarted === "true") return;
+
+    video.muted = true;
+    video.dataset.timelineStarted = "true";
+    const playRequest = video.play();
+    playRequest?.catch(() => {
+      video.dataset.timelineStarted = "false";
+    });
   });
 }
 
@@ -43,7 +86,7 @@ function entryMarkerCenter(entry) {
 function calendarScrollTargetFor(entry) {
   if (!calendarMonths) return null;
 
-  const calendarButton = document.querySelector(`.calendar-panel [data-target="${entry.id}"]`);
+  const calendarButton = calendarButtonFor(entry);
   if (!calendarButton) return null;
 
   const monthsRect = calendarMonths.getBoundingClientRect();
@@ -113,6 +156,7 @@ function setActiveEntry(entry) {
     activeEntry = entry;
     activeEntry.classList.add("active");
     setActiveMonth(activeEntry);
+    playVideosForEntry(activeEntry);
 
     buttonsFor(activeEntry).forEach((button) => {
       button.classList.add("active");
@@ -121,7 +165,7 @@ function setActiveEntry(entry) {
   }
 
   if (window.innerWidth <= 760) {
-    const railButton = document.querySelector(`.date-rail [data-target="${activeEntry.id}"]`);
+    const railButton = buttonsFor(activeEntry).find((button) => button.closest(".date-rail"));
     railButton?.scrollIntoView({
       behavior: reducedMotion.matches ? "auto" : "smooth",
       block: "nearest",
@@ -143,7 +187,7 @@ function updateConnector() {
     return;
   }
 
-  const calendarButton = document.querySelector(`.calendar-panel [data-target="${activeEntry.id}"]`);
+  const calendarButton = calendarButtonFor(activeEntry);
   if (!calendarButton) {
     connectorPath.setAttribute("d", "");
     return;
@@ -218,9 +262,9 @@ dateButtons.forEach((button) => {
   });
 });
 
-if (activeEntry) {
-  setActiveEntry(activeEntry);
-  setCalendarTargetForEntry(activeEntry, { immediate: true });
+if (entries[0]) {
+  setActiveEntry(entries[0]);
+  setCalendarTargetForEntry(entries[0], { immediate: true });
 }
 
 window.addEventListener("scroll", requestTimelineUpdate, { passive: true });
@@ -230,6 +274,14 @@ if (timelineLayout) {
 }
 requestTimelineUpdate();
 startTimelineLoop();
+
+outputsToggle?.addEventListener("click", () => {
+  const isOpen = outputsToggle.getAttribute("aria-expanded") === "true";
+  outputsToggle.setAttribute("aria-expanded", String(!isOpen));
+  outputsToggle.classList.toggle("is-open", !isOpen);
+  outputsPanel.hidden = isOpen;
+  outputsToggle.querySelector("span:first-child").textContent = isOpen ? "表示する" : "閉じる";
+});
 
 document.querySelectorAll(".mini-month[data-month]").forEach((month) => {
   const monthNumber = Number(month.dataset.month);
@@ -242,6 +294,20 @@ document.querySelectorAll(".mini-month[data-month]").forEach((month) => {
 const carouselRows = [...document.querySelectorAll("[data-carousel]")];
 
 carouselRows.forEach((row, index) => {
+  const prepareVideos = (scope) => {
+    scope.querySelectorAll("video").forEach((video) => {
+      video.autoplay = true;
+      video.loop = true;
+      video.muted = true;
+      video.playsInline = true;
+      const playRequest = video.play();
+      if (playRequest && typeof playRequest.catch === "function") {
+        playRequest.catch(() => {});
+      }
+    });
+  };
+
+  prepareVideos(row);
   const originals = [...row.children];
   originals.forEach((item) => {
     const copy = item.cloneNode(true);
@@ -249,11 +315,12 @@ carouselRows.forEach((row, index) => {
     copy.querySelectorAll("img").forEach((image) => image.setAttribute("alt", ""));
     row.append(copy);
   });
+  prepareVideos(row);
 
   let animationFrame;
   let lastTimestamp;
   let scrollPosition = 0;
-  // Row 1 (development) scrolls right; row 2 (event) scrolls left — opposite directions.
+  // Row 1 (development) scrolls right; row 2 (production) scrolls left — opposite directions.
   const direction = index === 0 ? -1 : 1;
   const speed = index === 0 ? 42 : 34;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");

@@ -4,11 +4,13 @@
 
 ## サイト
 
-`memory-map-site/index.html` をブラウザで開くか、次のコマンドでローカルサーバーを起動します。
+リポジトリ直下の `index.html` をブラウザで開くか、次のコマンドでローカルサーバーを起動します。
 
 ```bash
-python3 -m http.server 4173 --directory memory-map-site
+python3 -m http.server 4173
 ```
+
+公開サイト: https://kiseki-lab.github.io/2026-memory-map-report/
 
 主な掲載内容：
 

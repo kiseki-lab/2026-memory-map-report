@@ -166,11 +166,18 @@ function setActiveEntry(entry) {
 
   if (window.innerWidth <= 760) {
     const railButton = buttonsFor(activeEntry).find((button) => button.closest(".date-rail"));
-    railButton?.scrollIntoView({
-      behavior: reducedMotion.matches ? "auto" : "smooth",
-      block: "nearest",
-      inline: "center",
-    });
+    const rail = railButton?.closest(".date-rail");
+
+    if (rail && railButton) {
+      const railRect = rail.getBoundingClientRect();
+      const buttonRect = railButton.getBoundingClientRect();
+      const targetLeft = rail.scrollLeft + buttonRect.left - railRect.left - (railRect.width - buttonRect.width) / 2;
+
+      rail.scrollTo({
+        left: Math.max(0, Math.min(targetLeft, rail.scrollWidth - rail.clientWidth)),
+        behavior: reducedMotion.matches ? "auto" : "smooth",
+      });
+    }
   } else if (entryChanged) {
     setCalendarTargetForEntry(activeEntry);
   }

@@ -42,7 +42,7 @@ function calendarButtonFor(entry) {
 
 function setActiveMonth(entry) {
   const month = Number(entry?.dataset.date?.split(".")[0]);
-  const visibleMonth = Math.max(3, Math.min(6, month || 3));
+  const visibleMonth = Math.max(3, Math.min(8, month || 3));
 
   monthSections.forEach((section) => {
     section.classList.toggle("active", Number(section.dataset.month) === visibleMonth);

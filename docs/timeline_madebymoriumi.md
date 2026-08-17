@@ -104,5 +104,37 @@
     /home/novelsavage/Pictures/スクリーンショット/スクリーンショット_20260817_032809.png
     /home/novelsavage/Downloads/Friendship (3).png
 
-6.20 HCD当日
+6.20 ホームカミングデーで展示！！
+    麗澤大学ホームカミングデー2026で展示を実施した。卒業生に麗澤大学での思い出を書いてもらい、アナログマップとデジタルマップを使ってブースを立ち上げた。
+    データパイプラインは不具合なく動き、卒業生からも大好評！
+
+6.24 振り返り
+    役割分担とシステム稼働はうまく言ったが、一方で参加方法の説明、進捗共有、昔の校舎についての知識不足など、改善の余地もあった。
+
+7.1 次の展示についての検討
+    オープンキャンパスでの展示を検討し、対象者や体験について話し合った。
+
+7.3 活動報告サイトの構成を相談
+    活動報告サイト（このWebサイト）で何を見せるか、構成と役割を相談してプロトタイプを作成。
+
+7.6 Webの思い出ビューワーを開発
+    Three.jsでUnityを再現し、いつでも閲覧できる思い出サイト（https://2026-hcd-memory-map-web.vercel.app/）を開発した。
+    オリジナル要素としてOpenStreetMapの建物データを用いたワイヤーフレームや、思い出の色分けを追加実装した。
+    /home/novelsavage/Videos/Screencasts/Screencast From 2026-07-06 09-29-00.webm
+
+7.8 GitHubのOrganizationを作り、アーカイブ環境を整える
+    kiseki-lab（https://github.com/kiseki-lab）を作り、メンバーを招待。この半年の活動を記録する準備を始めた。
+
+7.15 オープンキャンパスの導線を設計
+    会場レイアウト、参加者の導線を検討した(HCDの反省を活かして！)
+    /home/novelsavage/Downloads/2537.jpg
+    /home/novelsavage/Downloads/最終レイアウト.png
+
+7.22 報告制作と秋以降の展開を相談
+    活動報告の素材と議事録を整理して、秋以降の発展案を話し合った。
+
+8.2 オープンキャンパスで展示！！
+    iArenaで展示を実施した。OCRパイプラインまで実際に起動し、デモンストレーションを行った。
+    /home/novelsavage/Downloads/1786964096043.jpg
+    /home/novelsavage/Downloads/IMG_4086.jpg
 

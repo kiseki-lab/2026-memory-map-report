@@ -33,15 +33,18 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--struggle); outl
 .site-header nav a { text-decoration: none; border-bottom: 1px solid transparent; }
 .site-header nav a:hover { border-color: currentColor; }
 
-.cover { min-height: calc(100svh - 76px); padding: clamp(60px, 9vw, 130px) var(--gutter) clamp(70px, 9vw, 120px); display: grid; grid-template-columns: minmax(0, 1fr); align-content: center; text-align: center; border-bottom: 1px solid var(--line); }
+.cover { position: relative; isolation: isolate; min-height: calc(100svh - 76px); padding: clamp(60px, 9vw, 130px) var(--gutter) clamp(70px, 9vw, 120px); display: grid; grid-template-columns: minmax(0, 1fr); align-content: center; text-align: center; color: var(--paper); border-bottom: 1px solid var(--line); overflow: hidden; }
+.cover::after, .credits::after { content: ""; position: absolute; z-index: -1; inset: 0; background: rgba(21, 24, 23, .58); }
+.section-background-video { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; background: var(--ink); }
+.cover > :not(.section-background-video), .credits > :not(.section-background-video) { position: relative; z-index: 1; }
 .eyebrow, .supervisor, .members { font-family: var(--mono); }
 .eyebrow { margin: 0 0 30px; font-size: 13px; letter-spacing: .05em; }
 .cover h1 { margin: 0; font-size: clamp(56px, 10vw, 150px); font-weight: 500; line-height: .92; letter-spacing: -.07em; }
 .supervisor { margin: 36px 0 12px; font-size: 14px; }
-.supervisor span { margin-right: 16px; color: var(--muted); font-size: 11px; }
+.supervisor span { margin-right: 16px; color: rgba(242, 240, 233, .72); font-size: 11px; }
 .members { margin: 0 auto; max-width: 1060px; font-size: clamp(12px, 1.35vw, 18px); line-height: 2.2; }
-.members span { color: var(--line-soft); margin: 0 .4em; }
-.introduction { max-width: 1040px; margin: clamp(55px, 7vw, 92px) auto 0; padding-top: 34px; border-top: 1px solid var(--line); column-count: 2; column-gap: clamp(36px, 6vw, 92px); text-align: left; font-size: clamp(15px, 1.25vw, 18px); line-height: 2.05; }
+.members span { color: rgba(242, 240, 233, .58); margin: 0 .4em; }
+.introduction { max-width: 1040px; margin: clamp(55px, 7vw, 92px) auto 0; padding-top: 34px; border-top: 1px solid rgba(242, 240, 233, .72); column-count: 2; column-gap: clamp(36px, 6vw, 92px); text-align: left; font-size: clamp(15px, 1.25vw, 18px); line-height: 2.05; }
 .introduction p { margin: 0; break-inside: avoid; }
 .drop-cap::first-letter { float: left; font-family: var(--mono); font-size: 7.2em; font-weight: 700; line-height: .68; padding: .11em .1em 0 0; }
 
@@ -150,7 +153,6 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--struggle); outl
 .calendar-weekdays { padding: 8px 0; border-bottom: 1px solid var(--line-soft); font-size: 9px; flex-shrink: 0; position: relative; z-index: 1; }
 .mini-month { padding: 17px 0 21px; border-bottom: 1px solid var(--line); opacity: .48; transition: opacity .15s linear; position: relative; z-index: 1; }
 .mini-month.active { opacity: 1; }
-.mini-month[data-month="7"], .mini-month[data-month="8"] { display: none; }
 .mini-month h3 { margin: 0 0 9px; display: flex; gap: 12px; align-items: baseline; font-size: 11px; font-weight: 400; position: relative; z-index: 1; }
 .mini-month h3 span { font-size: 22px; font-weight: 700; }
 .days { gap: 2px; font-size: 10px; line-height: 1; }
@@ -225,6 +227,8 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--struggle); outl
 .entry-media img { display: block; width: 100%; height: auto; max-height: 420px; object-fit: contain; object-position: center; background: var(--paper-bright); border: 1px solid var(--line); }
 .entry-media video { display: block; width: 100%; height: auto; max-height: 320px; object-fit: contain; background: var(--ink); border: 1px solid var(--line); }
 .entry-media.pair img, .entry-media.pair video { width: 100%; height: auto; max-height: none; object-fit: contain; }
+#entry-made-0715 .entry-media.pair img { aspect-ratio: 1408 / 1080; object-fit: cover; }
+#entry-made-0802 .entry-media.pair img { aspect-ratio: 1477 / 1108; object-fit: cover; }
 .media-entry--portrait { grid-template-columns: 142px minmax(0, 1fr) minmax(230px, .65fr); }
 .media-entry--portrait h3, .media-entry--portrait > p { min-width: 0; overflow-wrap: anywhere; }
 .media-entry--portrait .entry-media { grid-column: 3; grid-row: 1 / span 3; justify-self: end; width: min(100%, 230px); margin-top: 0; align-self: start; }
@@ -290,8 +294,8 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--struggle); outl
 .reflection-columns ul { margin: 0; padding-left: 1.2em; }
 .reflection-columns li { margin-bottom: 16px; }
 
-.credits { max-width: var(--content); margin: 0 auto; padding: clamp(90px, 11vw, 150px) var(--gutter); }
-.credits-grid { display: grid; grid-template-columns: .7fr 1fr; gap: clamp(30px, 6vw, 90px); margin-top: 70px; border-top: 2px solid var(--line); padding-top: 24px; }
+.credits { position: relative; isolation: isolate; min-height: 60vw; max-width: none; margin: 0; padding: clamp(42px, 5vw, 80px) max(var(--gutter), calc((100vw - var(--content)) / 2 + var(--gutter))); color: var(--paper); background: url("./assets/credits-thank-you.webp") center / 100% auto no-repeat; background-color: var(--ink); overflow: hidden; }
+.credits-grid { display: grid; grid-template-columns: 1fr; gap: clamp(32px, 4vw, 64px); margin-top: 70px; padding-top: 0; }
 .credits-grid h3 { font-family: var(--mono); font-size: 12px; }
 .credits-grid p { font-size: 13px; }
 .credits .section-heading h2 { white-space: nowrap; font-size: clamp(30px, 4.2vw, 54px); }
@@ -330,7 +334,8 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--struggle); outl
   .carousel-row--production { padding-left: 48px; }
   .carousel-row figure { flex-basis: 72vw; }
   .carousel-row figure.wide { flex-basis: 88vw; }
-  .technical-materials, .reflection, .credits { padding-inline: 20px; }
+  .technical-materials, .reflection { padding-inline: 20px; }
+  .credits { min-height: 0; padding-inline: 20px; background-size: cover; }
   .timeline-section { padding-inline: 20px; }
   .date-rail { display: flex; position: relative; gap: 8px; overflow-x: auto; margin: 0 -20px 35px; padding: 12px 20px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper); font-family: var(--mono); scrollbar-width: none; }
   .date-rail span, .date-rail button { flex: 0 0 auto; padding: 7px 9px; border: 0; background: transparent; font-size: 11px; }

@@ -13,28 +13,28 @@
 
 5.2 Unityのデモ作成
     HCD当日のプロジェクションマッピングの最初のテスト
-    /home/novelsavage/Downloads/IMG_2356.MOV
+    素材: IMG_2356.MOV
 
 5.13 HCD当日の会場の導線を考える
     見る場所、付箋を書く場所、デジタル表示を見る場所の関係を検討した。
-    /home/novelsavage/Downloads/DSC_1341.jpg
+    素材: DSC_1341.jpg
 
 5.20 展示の言葉を決める
     "あなたの青春が同じ地図上で出会う。離れていても思い出はキャンパスに。"
 
 5.27 3D開発が進行
     デジタル班の血の涙によってUnityでの建物データの表示、本のオープニングアニメーションの土台が完成！
-    Unityでの3D表示（/home/novelsavage/Downloads/画面収録 2026-05-27 12.11.56.mov）
-    Blenderでのオープニングアニメーションの作成（/home/novelsavage/Downloads/20260527-0509-31.9148461.mp4）
+    Unityでの3D表示（素材: 画面収録 2026-05-27 12.11.56.mov）
+    Blenderでのオープニングアニメーションの作成（素材: 20260527-0509-31.9148461.mp4）
 
 5.28 「写真でみる麗澤大学の50年」を入手
     大学の50周年記念冊子を入手し、その写真も活用することに。
-    /home/novelsavage/Pictures/スクリーンショット/スクリーンショット_20260817_012413.png
-    /home/novelsavage/Pictures/スクリーンショット/スクリーンショット_20260817_012340.png
+    素材: スクリーンショット_20260817_012413.png
+    素材: スクリーンショット_20260817_012340.png
 
 5.29 麗澤周辺マップの印刷
     航空写真を印刷してそれを貼り合わせ、1枚の大きなマップを作成
-    /home/novelsavage/Downloads/IMG_8695.jpg
+    素材: IMG_8695.jpg
 
 6.3  台風による休講
     台風によって活動が休講に。再来週に迫ったHCDに向けての準備は継続！
@@ -45,7 +45,7 @@
 6.5 麗澤大学の3Dデータが完成
     Blenderで作成した3Dデータを、実際に思い出を表示するUnityで開くことに成功！
     ベイクを用いてテクスチャを単一化するなどの工夫も。
-    /home/novelsavage/Downloads/image (2).png
+    素材: image (2).png
 
 6.9 投稿内容と当日準備を具体化
     過去の展示を共有し、当日必要なものと担当を洗い出した。
@@ -61,22 +61,22 @@
 
 6.12 3D効果、アニメーションの改良
     3Dマップのワイヤーフレーム効果や、アニメーションをブラッシュアップ！
-    /home/novelsavage/Downloads/画面収録 2026-06-12 20.58.19.mov
-    /home/novelsavage/Downloads/02修正ver_背景あり.mp4
+    素材: 画面収録 2026-06-12 20.58.19.mov
+    素材: 02修正ver_背景あり.mp4
 
 6.13 アナログマップとWebアプリのキャリブレーション
     Webアプリの座標指定ツールのために、アナログマップの端の緯度経度を座標系として調べる必要が出た。手分けをして緯度経度を調べ、無事同期完了。
-    /home/novelsavage/Downloads/Screenshot_20260613-231836.png
+    素材: Screenshot_20260613-231836.png
 
 6.15 HCD当日のための買い出し
     思い出カードのためのシールや付箋、糸などを買い出した。
-    /home/novelsavage/Downloads/IMG_8763.jpg
+    素材: IMG_8763.jpg
 
 6.15 校舎の3Dプリンター印刷が完了
     アナログマップの校舎を立体的に見せるため、校舎だけを3Dプリンターで印刷し重ねて置くことに。
     外部メンバーの協力もあって建物データから印刷が完了！
-    /home/novelsavage/Downloads/IMG_3705.jpg
-    /home/novelsavage/Downloads/image (3).png
+    素材: IMG_3705.jpg
+    素材: image (3).png
 
 6.16 Webアプリ改良とデータベース接続
     OCRの精度を補うため、Webアプリにレビュー機能を追加。人間がレビューしてからデータがアップロードされるように。
@@ -87,22 +87,22 @@
 
 6.17 投稿がUnityにリアルタイムに届く
     投稿をWebアプリで読み込み、Supabaseへアップロードし、それをUnityで読み込むフローが完成！ Unity側のキャリブレーションに少し詰まったが解決。
-    /home/novelsavage/Downloads/画面収録 2026-06-17 18.55.59.mov
+    素材: 画面収録 2026-06-17 18.55.59.mov
 
 6.18 アニメーションも改良
     どんどん改良されていく！！
-    /home/novelsavage/Downloads/パターン①ノーマル.mp4
+    素材: パターン①ノーマル.mp4
 
 6.19 BGMの作成
     ビートメイクができるメンバーがブース内BGMとオープニングアニメーションのSEを制作。
-    /home/novelsavage/Downloads/名称未設定 6 - 2026_06_19 20.23.mp3
-    /home/novelsavage/Downloads/カンパネラ - 2026_06_19 19.55.mp3
+    素材: 名称未設定 6 - 2026_06_19 20.23.mp3
+    素材: カンパネラ - 2026_06_19 19.55.mp3
 
 6.19 来訪者用のガイドの作成
     HCDの来訪者用の、思い出作成のガイドを作成。ジャンル分けについても色分けしつつ提示。
-    /home/novelsavage/Pictures/スクリーンショット/スクリーンショット_20260817_032741.png
-    /home/novelsavage/Pictures/スクリーンショット/スクリーンショット_20260817_032809.png
-    /home/novelsavage/Downloads/Friendship (3).png
+    素材: スクリーンショット_20260817_032741.png
+    素材: スクリーンショット_20260817_032809.png
+    素材: Friendship (3).png
 
 6.20 ホームカミングデーで展示！！
     麗澤大学ホームカミングデー2026で展示を実施した。卒業生に麗澤大学での思い出を書いてもらい、アナログマップとデジタルマップを使ってブースを立ち上げた。
@@ -120,21 +120,20 @@
 7.6 Webの思い出ビューワーを開発
     Three.jsでUnityを再現し、いつでも閲覧できる思い出サイト（https://2026-hcd-memory-map-web.vercel.app/）を開発した。
     オリジナル要素としてOpenStreetMapの建物データを用いたワイヤーフレームや、思い出の色分けを追加実装した。
-    /home/novelsavage/Videos/Screencasts/Screencast From 2026-07-06 09-29-00.webm
+    素材: Screencast From 2026-07-06 09-29-00.webm
 
 7.8 GitHubのOrganizationを作り、アーカイブ環境を整える
     kiseki-lab（https://github.com/kiseki-lab）を作り、メンバーを招待。この半年の活動を記録する準備を始めた。
 
 7.15 オープンキャンパスの導線を設計
     会場レイアウト、参加者の導線を検討した(HCDの反省を活かして！)
-    /home/novelsavage/Downloads/2537.jpg
-    /home/novelsavage/Downloads/最終レイアウト.png
+    素材: 2537.jpg
+    素材: 最終レイアウト.png
 
 7.22 報告制作と秋以降の展開を相談
     活動報告の素材と議事録を整理して、秋以降の発展案を話し合った。
 
 8.2 オープンキャンパスで展示！！
     iArenaで展示を実施した。OCRパイプラインまで実際に起動し、デモンストレーションを行った。
-    /home/novelsavage/Downloads/1786964096043.jpg
-    /home/novelsavage/Downloads/IMG_4086.jpg
-
+    素材: 1786964096043.jpg
+    素材: IMG_4086.jpg

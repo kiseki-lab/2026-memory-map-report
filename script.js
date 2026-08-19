@@ -20,6 +20,39 @@ let calendarScrollTarget = null;
 let timelineLoopRunning = false;
 const CALENDAR_SCROLL_EASE = 0.14;
 
+function loadDeferredVideo(video) {
+  const source = video.querySelector("source[data-src]");
+  if (!source || source.src) return;
+
+  source.src = source.dataset.src;
+  video.load();
+}
+
+function playMutedLoop(video) {
+  video.autoplay = true;
+  video.loop = true;
+  video.muted = true;
+  video.playsInline = true;
+  const playRequest = video.play();
+  if (playRequest && typeof playRequest.catch === "function") {
+    playRequest.catch(() => {});
+  }
+}
+
+const heroVideo = document.querySelector("[data-hero-video]");
+if (heroVideo && !reducedMotion.matches) {
+  const startHeroVideo = () => {
+    loadDeferredVideo(heroVideo);
+    playMutedLoop(heroVideo);
+  };
+
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(startHeroVideo, { timeout: 1500 });
+  } else {
+    window.setTimeout(startHeroVideo, 800);
+  }
+}
+
 function buttonsFor(entry) {
   if (!entry) return [];
 
@@ -301,20 +334,6 @@ document.querySelectorAll(".mini-month[data-month]").forEach((month) => {
 const carouselRows = [...document.querySelectorAll("[data-carousel]")];
 
 carouselRows.forEach((row, index) => {
-  const prepareVideos = (scope) => {
-    scope.querySelectorAll("video").forEach((video) => {
-      video.autoplay = true;
-      video.loop = true;
-      video.muted = true;
-      video.playsInline = true;
-      const playRequest = video.play();
-      if (playRequest && typeof playRequest.catch === "function") {
-        playRequest.catch(() => {});
-      }
-    });
-  };
-
-  prepareVideos(row);
   const originals = [...row.children];
   originals.forEach((item) => {
     const copy = item.cloneNode(true);
@@ -322,7 +341,29 @@ carouselRows.forEach((row, index) => {
     copy.querySelectorAll("img").forEach((image) => image.setAttribute("alt", ""));
     row.append(copy);
   });
-  prepareVideos(row);
+
+  const loadCarouselVideo = (video) => {
+    if (video.dataset.lazyVideoLoaded === "true") return;
+
+    video.dataset.lazyVideoLoaded = "true";
+    loadDeferredVideo(video);
+    playMutedLoop(video);
+  };
+
+  const lazyVideos = [...row.querySelectorAll("video[data-lazy-video]")];
+  if ("IntersectionObserver" in window) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        loadCarouselVideo(entry.target);
+        videoObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: "600px 0px" });
+
+    lazyVideos.forEach((video) => videoObserver.observe(video));
+  } else {
+    lazyVideos.forEach(loadCarouselVideo);
+  }
 
   let animationFrame;
   let lastTimestamp;
